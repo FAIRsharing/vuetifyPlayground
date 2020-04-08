@@ -1,7 +1,9 @@
 <template>
     <v-app id="app">
         <v-content>
+            <!--
             <span style="z-index: 200;position: fixed">{{ offsetTop }}</span>
+            -->
             <v-container fluid
                          class="overflow-y-auto"
                          id="scroll-target"

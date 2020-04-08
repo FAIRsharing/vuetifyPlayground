@@ -3,9 +3,9 @@ export const applicationMixin = {
         return {
             applicationStrings: {
                 connectionErrors: {
-                    NOT_FOUND: 'the record you are looking for is not existed',
+                    NOT_FOUND: 'The record you are looking for does not exist.',
                     CONNECTION_ERROR: 'There is a connection issue',
-                    NO_INTERNET: 'Your internet connection is lost!',
+                    NO_INTERNET: 'Your internet connection has been lost',
                 },
                 mainTopNav: {
                     TITLE_1: 'Standard',
@@ -15,7 +15,7 @@ export const applicationMixin = {
                 }
             },
             get globalReadOnlyProperty() {
-                return "Can't change me!";
+                return "Can't touch this!";
             },
         }
     }
