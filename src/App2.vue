@@ -1,14 +1,12 @@
 <template>
     <v-app id="app">
         <v-content>
-
-<!--            <span style="z-index: 200;position: fixed">{{ offsetTop }}</span>-->
-            <jump-top @click="scrollTo(0) "/>
-
+            <transition name="fade">
+            <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
+            </transition>
             <v-container fluid
-                         class="overflow-y-auto  custom-content-padding"
+                         class="overflow-y-auto  content-custom"
                          id="scroll-target"
-                         style="max-height: 100vh"
             >
                 <Header></Header>
                 <v-row no-gutters
@@ -57,7 +55,8 @@
             offsetTop: 0,
             stickToLeft: false,
             bodyOverflowActive: true,
-            hideOverflow: 'overflow-hidden'
+            hideOverflow: 'overflow-hidden',
+            showScrollToTopButton:false
         }),
         created() {
             this.ChangeOverflowStatus(true);
@@ -73,6 +72,7 @@
                 let _module = this;
                 this.offsetTop = e.target.scrollTop;
                 this.offsetTop > 105 ? _module.stickToLeft = true : _module.stickToLeft = false;
+                this.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
             },
             ChangeOverflowStatus: function (status) {
                 let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
@@ -109,8 +109,10 @@
         overflow: hidden !important;
     }
 
-    .custom-content-padding {
+    .content-custom {
         padding: 0 !important;
+        max-height: 100vh;
+        scroll-behavior: smooth
     }
 
     .footer-content {
