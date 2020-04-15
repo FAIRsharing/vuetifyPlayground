@@ -11,7 +11,6 @@
 </script>
 
 <style scoped lang="scss">
-
     header {
         height: 100px;
     }

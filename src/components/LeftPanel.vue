@@ -1,153 +1,12 @@
 <template>
     <aside>
-        <v-card
-                outlined
-                tile
-                style="height: 800px;overflow-x: hidden"
-        >
-            <v-sheet color="orange lighten-2 ">
-                <h3 class="indigo--text text--lighten-2 ">
-                    FILTER LIST
-                </h3>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div style="background-color: gray">filterItem</div>
-                <div style="background-color: darkgrey">filterItem</div>
-                <div>Last</div>
-            </v-sheet>
-
-        </v-card>
+        <v-sheet color="orange lighten-2 ">
+            <h3 class="indigo--text text--lighten-2 ">
+                FILTER LIST
+            </h3>
+            <div v-for="n in 200" style="background-color: gray" :key="n">filterItem {{n}}</div>
+            <div>Last</div>
+        </v-sheet>
     </aside>
 </template>
 
@@ -162,7 +21,10 @@
     }
 
     .v-sheet {
+        border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        overflow-x: hidden;
         height: 100vh;
-        overflow-x: hidden
     }
 </style>

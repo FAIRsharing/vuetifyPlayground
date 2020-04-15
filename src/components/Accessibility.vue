@@ -31,11 +31,10 @@
 </script>
 
 <style lang="scss">
-    @import './src/styles/variables';
-
+    /*@import './src/styles/variables';
+    border-radius: $border-radius-root;*/
     .custom-class {
         width: 300px;
         padding: 10px;
-        border-radius: $border-radius-root;
     }
 </style>
