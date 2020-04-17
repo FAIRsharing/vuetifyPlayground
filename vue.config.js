@@ -3,5 +3,5 @@ module.exports = {
     "transpileDependencies": [
         "vuetify"
     ],
-    publicPath: './vuetifyPlayground',
+    publicPath: './dist',
 };
