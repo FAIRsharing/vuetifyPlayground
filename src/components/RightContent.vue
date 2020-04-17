@@ -1,11 +1,12 @@
 <template>
     <div>
-        <div  v-for="n in 30"  :key="n" class="pt-2">
+        <div v-for="n in 30" :key="n" class="pt-2">
             <v-card
                     class="pa-2"
                     outlined
                     tile
                     color="secondary"
+                    height="100px"
             >
                 <b class="white--text">
                     {{n}}

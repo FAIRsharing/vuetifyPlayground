@@ -6,7 +6,7 @@
                 bottom
                 right
                 fixed
-                class="mr-2"
+                class="mr-2 mb-10"
                 @click="scrollToTop"
         >
             <v-icon>mdi-arrow-up</v-icon>
@@ -33,7 +33,9 @@
     .fade-enter-active, .fade-leave-active {
         transition: opacity .5s;
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
         opacity: 0;
     }
 </style>

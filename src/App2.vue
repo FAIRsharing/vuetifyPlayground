@@ -1,46 +1,48 @@
 <template>
     <v-app id="app">
-<!--
-        <v-navigation-drawer app>
-        </v-navigation-drawer>
--->
-        <Header v-if="showHeader"></Header>
-
-            <v-content>
-                <transition name="fade">
-                    <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
-                </transition>
-                <v-container fluid
-                             class="overflow-y-auto  content-custom"
-                             id="scroll-target"
+        <!--        <v-navigation-drawer app>-->
+        <!--        </v-navigation-drawer>-->
+        <transition name="fade">
+            <Header v-if="showHeader"></Header>
+        </transition>
+        <v-content>
+            <transition name="fade">
+                <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
+            </transition>
+            <v-container fluid
+                         class="overflow-y-auto  content-custom"
+                         id="scroll-target"
+            >
+                <v-row no-gutters
                 >
-                    <v-row no-gutters
-                    >
-                        <v-col cols="12" lg="4" md="4" class="d-none d-md-flex ">
-                            <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
-                        </v-col>
-                        <v-col>
-                            <ListController></ListController>
-                            <RightContent
-                                    v-scroll:#scroll-target="onScroll"
-                                    align="center"
-                                    justify="center"
-                                    class="pb-5"
-                            />
-                        </v-col>
-                    </v-row>
-                </v-container>
-            </v-content>
-            <v-footer>
-                <v-row>
-                    <v-col class="d-flex justify-center">
-                        <img src="src/assets/logo.png" height="200px"/>
+                    <v-col cols="12" lg="4" md="4" class="d-none d-md-flex ">
+                        <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
                     </v-col>
-                    <v-col class="d-flex justify-center">2</v-col>
-                    <v-col class="d-flex justify-center">3</v-col>
-                    <v-col class="d-flex justify-center">4</v-col>
+                    <v-col>
+                        <ListController class="mt-2"></ListController>
+                        <RightContent
+                                v-scroll:#scroll-target="onScroll"
+                                align="center"
+                                justify="center"
+                                class="pb-5"
+                        />
+                        <ListController class="mb-2"></ListController>
+                    </v-col>
                 </v-row>
-            </v-footer>
+            </v-container>
+        </v-content>
+<!--
+        <v-footer>
+            <v-row>
+                <v-col class="d-flex justify-center">
+                    <img src="src/assets/logo.png" height="200px"/>
+                </v-col>
+                <v-col class="d-flex justify-center">2</v-col>
+                <v-col class="d-flex justify-center">3</v-col>
+                <v-col class="d-flex justify-center">4</v-col>
+            </v-row>
+        </v-footer>
+-->
     </v-app>
 </template>
 
@@ -62,7 +64,7 @@
             bodyOverflowActive: true,
             hideOverflow: 'overflow-hidden',
             showScrollToTopButton: false,
-            showHeader:true
+            showHeader: true
         }),
         created() {
             this.ChangeOverflowStatus(true);
@@ -77,7 +79,13 @@
             onScroll: function (e) {
                 let _module = this;
                 this.offsetTop = e.target.scrollTop;
-                if(this.offsetTop > 105) {_module.stickToLeft = true;_module.showHeader=false;} else {_module.stickToLeft = false;_module.showHeader=true;}
+                if (this.offsetTop > 105) {
+                    _module.stickToLeft = true;
+                    _module.showHeader = false;
+                } else {
+                    _module.stickToLeft = false;
+                    _module.showHeader = true;
+                }
                 this.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
             },
             ChangeOverflowStatus: function (status) {

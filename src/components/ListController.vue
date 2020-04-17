@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="d-flex  ">
         <v-pagination v-model="page"
                       :length="5"
         />
@@ -18,5 +18,6 @@
 </script>
 
 <style scoped>
-
+    section {
+    }
 </style>
