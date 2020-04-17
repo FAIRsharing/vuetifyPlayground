@@ -25,7 +25,6 @@
             <v-btn>
                 <v-icon>mdi-format-align-right</v-icon>
             </v-btn>
-
         </v-btn-toggle>
     </section>
 </template>
