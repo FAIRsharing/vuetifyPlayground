@@ -121,11 +121,11 @@
 
     html, body {
         height: 100%;
-        overflow-x: hidden!important;
     }
 
     .overflow-hidden {
-        overflow: hidden !important;
+        overflow-x: hidden!important;
+        overflow-y: hidden !important;
     }
 
     .content-custom {
