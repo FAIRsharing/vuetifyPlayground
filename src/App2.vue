@@ -129,7 +129,6 @@
     }
 
     .content-custom {
-        padding: 0 !important;
         max-height: 100vh;
         scroll-behavior: smooth
     }

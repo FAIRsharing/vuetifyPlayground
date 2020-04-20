@@ -3,16 +3,21 @@
         <v-app-bar-nav-icon @click="toggleDrawerLeft" v-if="$vuetify.breakpoint.smAndDown"></v-app-bar-nav-icon>
         <v-img src="@/assets/fairsharing-logo.svg" height="60" class="d-flex flex-grow-0" contain></v-img>
         <v-spacer></v-spacer>
-        <v-btn
-                v-for="(item, itemIndex) in links"
-                :key="'navBarTopMenuItem_' + itemIndex"
-                class="mr-1"
-                :class="item.color"
-                :to="item.link"
-        >
-            <span class="white--text">{{ item.label }}</span>
-        </v-btn>
-
+        <ul v-if="!$vuetify.breakpoint.sm">
+            <li>
+                <v-btn
+                        :small="$vuetify.breakpoint.mdAndDown"
+                        :x-large="$vuetify.breakpoint.xlOnly"
+                        v-for="(item, itemIndex) in links"
+                        :key="'navBarTopMenuItem_' + itemIndex"
+                        class="mr-1 mt-sm-1"
+                        :class="item.color"
+                        :to="item.link"
+                >
+                    <span class="white--text">{{ item.label }}</span>
+                </v-btn>
+            </li>
+        </ul>
     </v-app-bar>
 </template>
 
@@ -78,5 +83,8 @@
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
     {
         opacity: 0;
+    }
+    ul{
+        list-style: none;
     }
 </style>
