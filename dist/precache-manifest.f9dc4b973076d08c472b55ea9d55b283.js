@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c33339913d1e5ec1421b",
+    "revision": "db50f6595356c361c409",
     "url": "css/app.f394e3ca.css"
   },
   {
-    "revision": "73cbea167d62fda90200",
+    "revision": "146ec35d55e40df03579",
     "url": "css/chunk-vendors.bcd3bbb2.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "fonts/materialdesignicons-webfont.fe1545ef.ttf"
   },
   {
-    "revision": "f62185d1a2d410613081455f337e667d",
-    "url": "img/fairsharing-logo.f62185d1.svg"
+    "revision": "c8194b18f1e815f905780474ac779e53",
+    "url": "img/fairsharing-logo.c8194b18.svg"
   },
   {
     "revision": "07d1e22e8cddd99a53037dc510221b7b",
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/logo.82b9c7a5.png"
   },
   {
-    "revision": "ddf7c7743d540c080e31c202a89c0a46",
+    "revision": "546192f6662b1a832b3b334ac418e5ab",
     "url": "index.html"
   },
   {
@@ -60,12 +60,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/about.c666870c.js"
   },
   {
-    "revision": "c33339913d1e5ec1421b",
-    "url": "js/app.0ac0019a.js"
+    "revision": "db50f6595356c361c409",
+    "url": "js/app.20e165c2.js"
   },
   {
-    "revision": "73cbea167d62fda90200",
-    "url": "js/chunk-vendors.ee53a558.js"
+    "revision": "146ec35d55e40df03579",
+    "url": "js/chunk-vendors.cd6f3944.js"
   },
   {
     "revision": "65a26a893471a81549361a477c2fd4af",
