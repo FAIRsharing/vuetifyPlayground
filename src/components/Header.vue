@@ -1,8 +1,6 @@
 <template>
-
-
     <v-app-bar>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="toggleDrawerLeft" v-if="$vuetify.breakpoint.smAndDown"></v-app-bar-nav-icon>
         <v-img src="@/assets/fairsharing-logo.svg" height="60" class="d-flex flex-grow-0" contain></v-img>
         <v-spacer></v-spacer>
         <v-btn color="primary" class="mr-2">
@@ -23,7 +21,18 @@
 
 <script>
     export default {
-        name: "Header"
+        name: "Header",
+        data() {
+            return {
+                drawerLeft: false
+            }
+        },
+        methods: {
+            toggleDrawerLeft: function () {
+                this.drawerLeft = true;
+                this.$emit('setParentDrawerStatus', this.drawerLeft)
+            }
+        }
     }
 </script>
 

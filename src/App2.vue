@@ -1,9 +1,9 @@
 <template>
     <v-app id="app">
-        <!--        <v-navigation-drawer app>-->
-        <!--        </v-navigation-drawer>-->
+        <v-navigation-drawer app  bottom v-model="showDrawerLeft" v-if="$vuetify.breakpoint.smAndDown">
+        </v-navigation-drawer>
         <transition name="fade">
-            <Header v-if="showHeader"></Header>
+            <Header v-if="showHeader" v-on:setParentDrawerStatus="setDrawerStatus"></Header>
         </transition>
         <v-content>
             <transition name="fade">
@@ -31,18 +31,18 @@
                 </v-row>
             </v-container>
         </v-content>
-<!--
-        <v-footer>
-            <v-row>
-                <v-col class="d-flex justify-center">
-                    <img src="src/assets/logo.png" height="200px"/>
-                </v-col>
-                <v-col class="d-flex justify-center">2</v-col>
-                <v-col class="d-flex justify-center">3</v-col>
-                <v-col class="d-flex justify-center">4</v-col>
-            </v-row>
-        </v-footer>
--->
+        <!--
+                <v-footer>
+                    <v-row>
+                        <v-col class="d-flex justify-center">
+                            <img src="src/assets/logo.png" height="200px"/>
+                        </v-col>
+                        <v-col class="d-flex justify-center">2</v-col>
+                        <v-col class="d-flex justify-center">3</v-col>
+                        <v-col class="d-flex justify-center">4</v-col>
+                    </v-row>
+                </v-footer>
+        -->
     </v-app>
 </template>
 
@@ -64,7 +64,8 @@
             bodyOverflowActive: true,
             hideOverflow: 'overflow-hidden',
             showScrollToTopButton: false,
-            showHeader: true
+            showHeader: true,
+            showDrawerLeft: false
         }),
         created() {
             this.ChangeOverflowStatus(true);
@@ -91,8 +92,11 @@
             ChangeOverflowStatus: function (status) {
                 let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
                 status ? root.setAttribute('class', this.hideOverflow) : root.removeAttribute('class');
+            },
+            setDrawerStatus: function (drawerStatus) {
+                this.showDrawerLeft = drawerStatus;
             }
-        },
+        }
     }
 </script>
 
