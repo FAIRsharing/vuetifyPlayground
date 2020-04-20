@@ -10,7 +10,7 @@
                 <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
             </transition>
             <v-container fluid
-                         class="overflow-y-auto overflow-x-hidden content-custom"
+                             class="overflow-y-auto overflow-x-hidden content-custom"
                          id="scroll-target"
             >
                 <v-row no-gutters

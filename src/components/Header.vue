@@ -3,17 +3,14 @@
         <v-app-bar-nav-icon @click="toggleDrawerLeft" v-if="$vuetify.breakpoint.smAndDown"></v-app-bar-nav-icon>
         <v-img src="@/assets/fairsharing-logo.svg" height="60" class="d-flex flex-grow-0" contain></v-img>
         <v-spacer></v-spacer>
-        <v-btn color="primary" class="mr-2">
-            Standards
-        </v-btn>
-        <v-btn color="primary" class="mr-2">
-            Policies
-        </v-btn>
-        <v-btn color="primary" class="mr-2">
-            Collections
-        </v-btn>
-        <v-btn color="primary" class="mr-2">
-            MenuTitle
+        <v-btn
+                v-for="(item, itemIndex) in links"
+                :key="'navBarTopMenuItem_' + itemIndex"
+                class="mr-1"
+                :class="item.color"
+                :to="item.link"
+        >
+            <span class="white--text">{{ item.label }}</span>
         </v-btn>
 
     </v-app-bar>
@@ -24,7 +21,44 @@
         name: "Header",
         data() {
             return {
-                drawerLeft: false
+                drawerLeft: false,
+                links: [
+                    {
+                        label: "Search",
+                        link: "/search",
+                        color: "blue"
+                    },
+                    {
+                        label: "Standards",
+                        link: "/standards",
+                        color: "blue"
+                    },
+                    {
+                        label: "Databases",
+                        link: "/databases",
+                        color: "blue"
+                    },
+                    {
+                        label: "Policies",
+                        link: "/policies",
+                        color: "blue"
+                    },
+                    {
+                        label: "Collections",
+                        link: "/collections",
+                        color: "blue"
+                    },
+                    {
+                        label: "Add/Claim content",
+                        link: "/new",
+                        color: "grey"
+                    },
+                    {
+                        label: "Stats",
+                        link: "/summary-statistics",
+                        color: "teal darken-2"
+                    }
+                ]
             }
         },
         methods: {
