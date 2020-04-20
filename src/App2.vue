@@ -10,11 +10,10 @@
                 <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
             </transition>
             <v-container fluid
-                         class="overflow-y-auto  content-custom"
+                         class="overflow-y-auto overflow-x-hidden content-custom"
                          id="scroll-target"
             >
                 <v-row no-gutters
-                       class="overflow-x-hidden"
                 >
                     <v-col cols="12" lg="4" md="4" class="d-none d-md-flex ">
                         <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
