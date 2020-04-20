@@ -14,6 +14,7 @@
                          id="scroll-target"
             >
                 <v-row no-gutters
+                       class="overflow-x-hidden"
                 >
                     <v-col cols="12" lg="4" md="4" class="d-none d-md-flex ">
                         <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
@@ -124,8 +125,8 @@
     }
 
     .overflow-hidden {
-        overflow-x: hidden!important;
-        overflow-y: hidden !important;
+        overflow: hidden !important;
+
     }
 
     .content-custom {
