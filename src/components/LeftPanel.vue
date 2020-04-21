@@ -1,9 +1,9 @@
 <template>
     <aside>
         <v-sheet color="orange lighten-2 ">
-            <h3 class="indigo--text text--lighten-2 ">
-                FILTER LIST
-            </h3>
+            <h2 class="indigo--text text--lighten-2 ">
+                Filter List
+            </h2>
             <div v-for="n in 200" style="background-color: gray" :key="n">filterItem {{n}}</div>
             <div>Last</div>
         </v-sheet>

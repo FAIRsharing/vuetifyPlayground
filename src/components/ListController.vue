@@ -1,5 +1,8 @@
 <template>
     <section class="d-flex  justify-center mr-1 ml-1">
+        <h2 class="d-none">
+            Control List
+        </h2>
         <v-btn-toggle
                 mandatory
         >

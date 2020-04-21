@@ -1,16 +1,19 @@
 <template>
     <v-app id="app">
-        <v-navigation-drawer app  bottom v-model="showDrawerLeft" v-if="$vuetify.breakpoint.smAndDown">
+        <v-navigation-drawer app bottom v-model="showDrawerLeft" v-if="$vuetify.breakpoint.smAndDown">
         </v-navigation-drawer>
         <transition name="fade">
             <Header v-if="showHeader" v-on:setParentDrawerStatus="setDrawerStatus"></Header>
         </transition>
         <v-content>
+            <h1 class="d-none">
+                Content
+            </h1>
             <transition name="fade">
                 <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
             </transition>
             <v-container fluid
-                             class="overflow-y-auto overflow-x-hidden content-custom "
+                         class="overflow-y-auto overflow-x-hidden content-custom "
                          id="scroll-target"
             >
                 <v-row no-gutters
