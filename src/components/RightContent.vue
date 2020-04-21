@@ -9,9 +9,9 @@
                     elevation="3"
             >
                 <div class="ml-2 pr-6">
-                    <circle-holder>
-                    </circle-holder>
+                    <circle-holder :status="n%2===0?statuses[0]:statuses[1]" :key="n"/>
                 </div>
+                <h2 class="pl-2" style="color: gray;font-size: 1.3em">Record Title {{n}}</h2>
             </v-card>
         </section>
     </article>
@@ -22,7 +22,12 @@
 
     export default {
         name: "RightContent",
-        components: {CircleHolder}
+        components: {CircleHolder},
+        data() {
+            return {
+                statuses: ['ready', 'deprecated']
+            }
+        }
     }
 </script>
 
