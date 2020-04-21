@@ -1,27 +1,35 @@
 <template>
-    <div>
-        <div v-for="n in 30" :key="n" class="pt-2">
+    <article>
+        <section v-for="n in 30" :key="n" class="pt-2">
             <v-card
-                    class="pa-2"
+                    class="pa-2 d-flex  align-center"
                     outlined
                     tile
-                    color="secondary"
-                    height="100px"
+                    height="120px"
+                    elevation="3"
             >
-                <b class="white--text">
-                    {{n}}
-                </b>
+                <div class="ml-2 pr-6">
+                    <circle-holder>
+                    </circle-holder>
+                </div>
             </v-card>
-        </div>
-    </div>
+        </section>
+    </article>
 </template>
 
 <script>
+    import CircleHolder from "./CircleHolder";
+
     export default {
-        name: "RightContent"
+        name: "RightContent",
+        components: {CircleHolder}
     }
 </script>
 
 <style scoped>
+    ul {
+        list-style: none;
+    }
+
 
 </style>

@@ -10,7 +10,7 @@
                 <jump-top target-object="scroll-target" v-if="showScrollToTopButton"/>
             </transition>
             <v-container fluid
-                             class="overflow-y-auto overflow-x-hidden content-custom"
+                             class="overflow-y-auto overflow-x-hidden content-custom "
                          id="scroll-target"
             >
                 <v-row no-gutters
@@ -22,11 +22,9 @@
                         <ListController class="mt-2"></ListController>
                         <RightContent
                                 v-scroll:#scroll-target="onScroll"
-                                align="center"
-                                justify="center"
-                                class="pb-5"
+                                class="pb-5 mr-1 ml-1"
                         />
-                        <ListController class="mb-2"></ListController>
+                        <ListController class="mb-2 "></ListController>
                     </v-col>
                 </v-row>
             </v-container>
