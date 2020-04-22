@@ -17,9 +17,9 @@
                 <h3 class="pl-2 h3-text-color max-height-large max-width">Record title is  a bit long! test {{n}}</h3>
                 <section class="ml-4 d-flex flex-column">
                     <h4 class="d-none">select Tag type</h4>
-                    <v-btn  text  color="primary">SUBJECT</v-btn>
+                    <v-btn  text  class="button-text-color">SUBJECT</v-btn>
                     <v-btn  outlined color="primary">DOMAIN</v-btn>
-                    <v-btn  text  color="primary">TAXONOMY</v-btn>
+                    <v-btn  text  class="button-text-color">TAXONOMY</v-btn>
                 </section>
             </v-card>
         </section>
