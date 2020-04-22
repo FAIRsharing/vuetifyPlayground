@@ -1,0 +1,27 @@
+//custom colors
+$color1: #acacac;
+
+$max-width-val:20%;
+$max-height-val:100px;
+
+
+h1{
+  font-size: 2em;
+}
+h2{
+  font-size: 1.5em;
+}
+h3{
+  font-size: 1.2em;
+  color: $color1;
+  overflow: hidden;
+}
+
+.max-width{
+  max-width: $max-width-val;
+}
+.max-height{
+  max-height: $max-height-val;
+}
+
+

@@ -25,7 +25,7 @@
                         <ListController class="mt-2"></ListController>
                         <RightContent
                                 v-scroll:#scroll-target="onScroll"
-                                class="pb-5 mr-1 ml-1"
+                                class="pb-5 mr-1 ml-1 "
                         />
                         <ListController class="mb-2 "></ListController>
                     </v-col>
