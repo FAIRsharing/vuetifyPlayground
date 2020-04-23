@@ -20,7 +20,6 @@
             <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
             <v-chip-group
                     column
-                    multiple
             >
                 <v-chip small text-color="secondary" color="secondary" v-for="(chip,index) in Chips[currentActiveChips]"
                         :key="index"
@@ -43,7 +42,6 @@
         },
         data() {
             return {
-                active: true,
                 buttons: [{title: 'SUBJECTS', active: false}, {title: 'DOMAINS', active: true}, {
                     title: 'TAXONOMIES',
                     active: false,
@@ -88,5 +86,6 @@
         height: 110px;
         width: 80%;
         overflow-x: hidden;
+        scroll-behavior: smooth;
     }
 </style>
