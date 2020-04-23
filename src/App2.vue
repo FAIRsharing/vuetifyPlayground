@@ -5,8 +5,8 @@
         <transition name="fade">
             <Header v-if="showHeader" v-on:setParentDrawerStatus="setDrawerStatus"></Header>
         </transition>
-            <Records  v-on:toggleHeader="toggleHeaderHidden" v-on:changeOverFlow="changeOverflowStatus"/>
-<!--        <StaticPage />-->
+        <Records v-on:toggleHeader="toggleHeaderHidden" v-on:changeOverFlow="changeOverflowStatus"/>
+        <!--        <StaticPage />-->
     </v-app>
 </template>
 
@@ -16,14 +16,14 @@
     // import StaticPage from "./views/StaticPage";
 
     export default {
-        components: { Records, Header},
+        components: {Records, Header},
         props: {
             source: String,
         },
         data: () => ({
             showHeader: true,
             showDrawerLeft: false,
-            hideOverflow:'overflow-hidden'
+            hideOverflow: 'overflow-hidden'
         }),
         created() {
             // this.$vuetify.theme.dark = true;
@@ -37,11 +37,10 @@
             setDrawerStatus: function (drawerStatus) {
                 this.showDrawerLeft = drawerStatus;
             },
-            toggleHeaderHidden:function (headerState) {
-            this.showHeader = headerState;
+            toggleHeaderHidden: function (headerState) {
+                this.showHeader = headerState;
             },
             changeOverflowStatus: function (status) {
-                console.log(status)
                 let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
                 status ? root.setAttribute('class', this.hideOverflow) : root.removeAttribute('class');
             },
@@ -63,6 +62,7 @@
     .footer-content {
 
     }
+
     .overflow-hidden {
         overflow: hidden !important;
     }

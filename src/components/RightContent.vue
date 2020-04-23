@@ -15,9 +15,6 @@
     export default {
         name: "RightContent",
         components: {RecordsCard},
-        data() {
-
-        }
     }
 </script>
 

@@ -9,7 +9,7 @@
         <div class="ml-2 pr-6">
             <circle-holder :status="RecordStatus"/>
         </div>
-        <h3 class="pl-2   max-height max-width">Record title as as asas test long {{n}}</h3>
+        <h3 class="pl-2   max-height max-width">Record title as as asas test long </h3>
         <section class="ml-2 mr-4 d-flex flex-column">
             <h4 class="d-none">select Tag type</h4>
             <v-btn v-for="(item,index) in buttons" :key="index" :outlined="item.active" text class="button-text-color"
@@ -21,9 +21,9 @@
             <v-chip-group
                     column
             >
-                <v-chip small text-color="secondary" color="secondary" v-for="(chip,index) in Chips[currentActiveChips]"
-                        :key="index"
-                        filter
+                <v-chip small text-color="secondary" color="secondary" v-for="chip in Chips[currentActiveChips]"
+                        :key="chip.title"
+                        :close="chip.active"
                         outlined @click="toggleChipActiveness(chip)">{{chip.title}}
                 </v-chip>
             </v-chip-group>
@@ -48,7 +48,7 @@
                 }],
                 Chips: {
                     SUBJECTS: [
-                        {title: 'subject-Chip1', active: false}, {title: 'subject-Chip2', active: false},
+                        {title: 'subject-Chip1', active: false}, {title: 'subject-Chip2', active: true},
                     ],
                     DOMAINS: [
                         {title: 'domain-Chip1', active: false}, {title: 'domain-Chip2', active: false},
@@ -63,7 +63,8 @@
                         {title: 'taxonomies-Chip11', active: false}, {title: 'taxonomies-Chip12', active: false},
                     ],
                 },
-                currentActiveChips: 'DOMAINS'
+                currentActiveChips: 'DOMAINS',
+                vChipActive: 'v-chip--active'
             }
         },
         methods: {
@@ -74,9 +75,13 @@
                 this.currentActiveChips = this.buttons[itemIndex].title;
             },
             toggleChipActiveness: function (itemIndex) {
-                let selectedItem = this.items.find(item => item === itemIndex);
-                this.items.map(item => item === selectedItem ? item.active = !item.active : item.active = true);
-            }
+                let selectedItem = this.Chips[this.currentActiveChips].find(item => item === itemIndex);
+                this.Chips[this.currentActiveChips].map(item => {
+                    if (item === selectedItem) {
+                        item.active = !item.active;
+                    }
+                });
+            },
         }
     }
 </script>
@@ -87,5 +92,9 @@
         width: 80%;
         overflow-x: hidden;
         scroll-behavior: smooth;
+    }
+
+    .v-chip.v-chip--outlined.v-chip--active::before {
+        opacity: 0;
     }
 </style>
