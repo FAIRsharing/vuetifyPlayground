@@ -48,7 +48,7 @@
                 }],
                 Chips: {
                     SUBJECTS: [
-                        {title: 'subject-Chip1', active: false}, {title: 'subject-Chip2', active: true},
+                        {title: 'subject-Chip1', active: false}, {title: 'subject-Chip2', active: false},
                     ],
                     DOMAINS: [
                         {title: 'domain-Chip1', active: false}, {title: 'domain-Chip2', active: false},
