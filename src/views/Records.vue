@@ -12,8 +12,8 @@
         >
             <!-- Title banner -->
             <section
-                   id="banner"
-                   class="secondary mb-2"
+                    id="banner"
+                    class="secondary mb-2"
             >
                 <h1 class="text-center white--text">
                     {{ getTitle }}
@@ -31,7 +31,7 @@
                 <v-col>
                     <RightContentStackList
                             v-scroll:#scroll-target="onScroll"
-                            class="pb-5 mr-1 ml-1 "
+                            class="pb-5  "
                     />
                 </v-col>
             </v-row>
@@ -88,7 +88,7 @@
                 this.$emit('toggleHeader', _module.showHeader);
             },
         },
-        computed:{
+        computed: {
             getTitle: function () {
                 return 'Standards';
             }
@@ -113,7 +113,8 @@
         max-height: 100vh;
         scroll-behavior: smooth
     }
-    #banner{
+
+    #banner {
         display: flex;
         justify-content: center;
         flex-direction: column;

@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex  justify-center mr-1 ml-1">
+    <div class="d-flex  justify-center">
         <v-btn-toggle
                 mandatory
         >
