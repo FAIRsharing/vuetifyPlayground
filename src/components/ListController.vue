@@ -1,8 +1,5 @@
 <template>
-    <section class="d-flex  justify-center mr-1 ml-1">
-        <h2 class="d-none">
-            Control List
-        </h2>
+    <div class="d-flex  justify-center mr-1 ml-1">
         <v-btn-toggle
                 mandatory
         >
@@ -26,7 +23,7 @@
                 <v-icon>mdi-format-align-right</v-icon>
             </v-btn>
         </v-btn-toggle>
-    </section>
+    </div>
 </template>
 
 <script>

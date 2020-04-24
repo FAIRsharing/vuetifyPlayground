@@ -1,8 +1,16 @@
 <template>
     <section>
         <h1 class="d-none">Records</h1>
-        <div style="background: lightblue;width: 100%;height: 50px;display: flex;justify-content: center;align-items: center">place of filter Chip</div>
+
+        <!--Filtered Chips-->
+        <div style="background: lightblue;width: 100%;height: 50px;display: flex;justify-content: center;align-items: center">
+            place of filter Chip
+        </div>
+
+        <!--List Controller-->
         <ListController class="mt-2"></ListController>
+
+        <!--List Row-->
         <article>
             <h2 class="d-none">
                 Result
@@ -11,7 +19,10 @@
                 <RecordsCard :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCard>
             </section>
         </article>
+
+        <!--List Controller-->
         <ListController class="mt-2"></ListController>
+
     </section>
 </template>
 
