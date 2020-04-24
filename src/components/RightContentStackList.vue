@@ -1,6 +1,7 @@
 <template>
     <section>
         <h1 class="d-none">Records</h1>
+        <div style="background: lightblue;width: 100%;height: 50px;display: flex;justify-content: center;align-items: center">place of filter Chip</div>
         <ListController class="mt-2"></ListController>
         <article>
             <h2 class="d-none">
