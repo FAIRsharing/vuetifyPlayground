@@ -10,6 +10,19 @@
                      class="overflow-y-auto overflow-x-hidden content-custom "
                      id="scroll-target"
         >
+            <!-- Title banner -->
+            <section
+                   id="banner"
+                   class="secondary mb-2"
+            >
+                <h1 class="text-center white--text">
+                    {{ getTitle }}
+                </h1>
+                <p class="text-center white--text">
+                    {{ recordsSubTitles[getTitle] }}
+                </p>
+            </section>
+
             <v-row no-gutters
             >
                 <v-col cols="12" lg="4" md="4" class="d-none d-md-flex ">
@@ -33,7 +46,7 @@
 
     export default {
         name: "Records",
-        components: { RightContentStackList, JumpTop, LeftPanel},
+        components: {RightContentStackList, JumpTop, LeftPanel},
         data: () => ({
             offsetTop: 0,
             stickToLeft: false,
@@ -41,7 +54,21 @@
             hideOverflow: 'overflow-hidden',
             showScrollToTopButton: false,
             showHeader: true,
-            showDrawerLeft: false
+            showDrawerLeft: false,
+            recordsSubTitles: {
+                Standards: "The standards in FAIRsharing are manually curated from a variety of sources, including BioPortal, " +
+                    "MIBBI and the Equator Network.",
+                Collections: "Collections group together one or more types of resource (standard, database or policy) by " +
+                    "domain, project or organisation. A Recommendation is a core-set of resources that are selected or " +
+                    "endorsed by data policies from journals, funders or other organizations.",
+                Databases: "A catalogue of databases, described according to the BioDBcore guidelines, along with the standards " +
+                    "used within them; partly compiled with the support of Oxford University Press (NAR Database Issue " +
+                    "and DATABASE Journal).",
+                Policies: "FAIRsharing policies: A catalogue of data preservation, management and sharing policies from " +
+                    "international funding agencies, regulators and journals.",
+                Search: "Search the FAIRsharing records using advanced filtering"
+            },
+
         }),
         created() {
             this.$emit('changeOverFlow', true);
@@ -60,6 +87,11 @@
                 this.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
                 this.$emit('toggleHeader', _module.showHeader);
             },
+        },
+        computed:{
+            getTitle: function () {
+                return 'Standards';
+            }
         }
     }
 </script>
@@ -80,6 +112,12 @@
     .content-custom {
         max-height: 100vh;
         scroll-behavior: smooth
+    }
+    #banner{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em;
     }
 
 </style>
