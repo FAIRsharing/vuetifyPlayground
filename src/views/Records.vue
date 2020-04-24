@@ -1,6 +1,5 @@
 <template>
     <v-content>
-
         <h1 class="d-none">
             Content
         </h1>
@@ -17,12 +16,10 @@
                     <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
                 </v-col>
                 <v-col>
-                    <ListController class="mt-2"></ListController>
-                    <RightContent
+                    <RightContentStackList
                             v-scroll:#scroll-target="onScroll"
                             class="pb-5 mr-1 ml-1 "
                     />
-                    <ListController class="mb-2 "></ListController>
                 </v-col>
             </v-row>
         </v-container>
@@ -31,13 +28,12 @@
 
 <script>
     import LeftPanel from "@/components/LeftPanel";
-    import ListController from "@/components/ListController";
     import JumpTop from "@/components/jumpToTop";
-    import RightContent from "@/components/RightContent";
+    import RightContentStackList from "../components/RightContentStackList";
 
     export default {
         name: "Records",
-        components: {RightContent, JumpTop, ListController, LeftPanel},
+        components: { RightContentStackList, JumpTop, LeftPanel},
         data: () => ({
             offsetTop: 0,
             stickToLeft: false,
