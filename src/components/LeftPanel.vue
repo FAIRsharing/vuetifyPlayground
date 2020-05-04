@@ -13,6 +13,9 @@
             <v-expansion-panels
                     v-model="panel"
                     multiple
+                    flat
+                    hover
+                    accordion
             >
                 <v-expansion-panel
                         v-for="(item,i) in items"
