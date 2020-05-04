@@ -9,33 +9,10 @@
             <h2 class="d-none">
                 Filter List
             </h2>
-            <!-- Must change to this style in smaller screen -->
-            <!--
-                            <div class="d-flex flex-row justify-center mb-2"  >
-                                    <v-btn color="primary" class="mr-1" style="font-size: 9px;width: 16.5%" >ALL</v-btn>
-                                    <v-btn color="primary" class="mr-1" style="font-size: 9px;width: 38%" outlined>RECOMMENDED</v-btn>
-                                    <v-btn color="primary" class="mr-1" style="font-size: 9px;width: 38%" outlined>NOT RECOMMENDED</v-btn>
-                            </div>
-            -->
-            <div class="d-flex flex-row justify-start mb-2">
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 16.5%">ALL</v-btn>
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 40%" outlined>RECOMMENDED</v-btn>
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 40%" outlined>NOT RECOMMENDED</v-btn>
-            </div>
-            <div class="d-flex flex-row justify-start mb-2">
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 16.5%">ALL</v-btn>
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 40%" outlined>PUBLISHED</v-btn>
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 40%" outlined>NOT PUBLISHED</v-btn>
-            </div>
-            <div class="d-flex flex-row justify-start mb-2">
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 16.5%">ALL</v-btn>
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 40%" outlined>MAINTAINED</v-btn>
-                <v-btn color="primary" class="mr-2" style="font-size: 11px;width: 40%" outlined>NOT MAINTAINED</v-btn>
-            </div>
+            <FilterButtons :md-screens="$vuetify.breakpoint.mdAndDown"/>
             <v-expansion-panels
                     v-model="panel"
                     multiple
-
             >
                 <v-expansion-panel
                         v-for="(item,i) in items"
@@ -54,8 +31,10 @@
 </template>
 
 <script>
+    import FilterButtons from "./FilterButtons";
     export default {
         name: "LeftPanel",
+        components: {FilterButtons},
         data: () => ({
             panel: [],
             items: 5,
