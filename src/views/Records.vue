@@ -13,7 +13,7 @@
             <!-- Title banner -->
             <section
                     id="banner"
-                    class="secondary mb-0 "
+                    class="secondary"
             >
                 <h1 class="text-center white--text">
                     {{ getTitle }}
@@ -25,13 +25,13 @@
 
             <v-row no-gutters
             >
-                <v-col cols="12" lg="4" md="4" class="d-none d-md-flex ">
+                <v-col cols="12" lg="4" md="4" class="d-none d-md-flex mt-2 ml-2">
                     <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
                 </v-col>
-                <v-col>
+                <v-col class="mt-2">
                     <RightContentStackList
                             v-scroll:#scroll-target="onScroll"
-                            class="pb-5  "
+                            class="pb-5 mr-2"
                     />
                 </v-col>
             </v-row>
