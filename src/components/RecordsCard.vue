@@ -3,10 +3,10 @@
             class="pa-2 d-flex  align-center flex-column"
             outlined
             tile
-            elevation="3"
+            :hover="allowClicking"
     >
         <v-row no-gutters class="full-width">
-            <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3">
+            <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3" @mouseenter="allowClicking=true" @mouseleave="allowClicking=false">
                 <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">
                     <circle-holder :status="RecordStatus" class="mr-8"/>
                     <h3 class="max-height " style="width: 60%">Record title example</h3>
@@ -59,6 +59,7 @@
         },
         data() {
             return {
+                allowClicking: false,
                 buttons: [{title: 'SUBJECTS', active: false}, {title: 'DOMAINS', active: true}, {
                     title: 'TAXONOMIES',
                     active: false,
