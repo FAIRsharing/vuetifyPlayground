@@ -2,8 +2,8 @@
     <div class="circle">
         <v-icon size="50" class="iconClass">{{getRecordStatus.icon}}</v-icon>
         <span id="innerCircle" :style="getRecordStatus.backColor">
-        <v-tooltip right >
-            <template v-slot:activator="{ on }" >
+        <v-tooltip right>
+            <template v-slot:activator="{ on }">
                 <b id="status-style" v-on="on">{{getRecordStatus.title}}</b>
             </template>
             <span>{{getRecordStatus.toolTip}}</span>
@@ -25,25 +25,25 @@
                     ready: {
                         title: 'R',
                         toolTip: 'Ready',
-                        icon:'mdi-database',
+                        icon: 'mdi-database',
                         backColor: 'background: linear-gradient(green, lightgreen)'
                     },
                     deprecated: {
                         title: 'D',
                         toolTip: 'Deprecated',
-                        icon:'mdi-database',
+                        icon: 'mdi-database',
                         backColor: 'background: linear-gradient(#8F4309, #a57202)'
                     },
                     uncertain: {
                         title: 'U',
                         toolTip: 'Uncertain',
-                        icon:'mdi-database',
+                        icon: 'mdi-database',
                         backColor: 'background: linear-gradient(yellow, yellow)'
                     },
                     inDevelopment: {
                         title: 'I',
                         toolTip: 'In Development',
-                        icon:'mdi-database',
+                        icon: 'mdi-database',
                         backColor: 'background: linear-gradient(pink, pink)'
                     }
                 },
