@@ -1,33 +1,50 @@
 <template>
     <v-card
-            class="pa-2 d-flex  align-center"
+            class="pa-2 d-flex  align-center flex-column"
             outlined
             tile
-            height="130px"
             elevation="3"
     >
-        <div class="ml-2 pr-6">
-            <circle-holder :status="RecordStatus"/>
+        <v-row no-gutters class="full-width">
+            <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3">
+                <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">
+                    <circle-holder :status="RecordStatus" class="mr-8"/>
+                    <h3 class="max-height " style="width: 60%">Record title example</h3>
+                </div>
+            </v-col>
+            <v-col cols="12" sm="4" md="3" lg="3" xs="12" xl="2" class="mt-2">
+                <section class="ml-2 mb-0 mr-4 d-flex flex-column">
+                    <h4 class="d-none">select Tag type</h4>
+                    <v-btn v-for="(item,index) in buttons" :key="index" :outlined="item.active" text
+                           class="button-text-color"
+                           :color="item.active?'primary':null" @click="changeActiveItem(index)">{{item.title}}
+                    </v-btn>
+                </section>
+            </v-col>
+            <v-col sm="8" md="9" lg="9" xs="12" xl="7">
+                <section class="chips-container ">
+                    <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
+                    <v-chip-group
+                            column
+                    >
+                        <v-chip small text-color="secondary" color="secondary" v-for="chip in Chips[currentActiveChips]"
+                                :key="chip.title"
+                                :close="chip.active"
+                                outlined @click="toggleChipActiveness(chip)">{{chip.title}}
+                        </v-chip>
+                    </v-chip-group>
+                </section>
+            </v-col>
+        </v-row>
+        <!--       Description -->
+        <div class="d-flex flex-row" style="width: 70%">
+            <v-divider
+                    class="mt-2"
+            ></v-divider>
         </div>
-        <h3 class="pl-2   max-height max-width">Record title as as asas test long </h3>
-        <section class="ml-2 mr-4 d-flex flex-column">
-            <h4 class="d-none">select Tag type</h4>
-            <v-btn v-for="(item,index) in buttons" :key="index" :outlined="item.active" text class="button-text-color"
-                   :color="item.active?'primary':null" @click="changeActiveItem(index)">{{item.title}}
-            </v-btn>
-        </section>
-        <section class="chips-container">
-            <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
-            <v-chip-group
-                    column
-            >
-                <v-chip small text-color="secondary" color="secondary" v-for="chip in Chips[currentActiveChips]"
-                        :key="chip.title"
-                        :close="chip.active"
-                        outlined @click="toggleChipActiveness(chip)">{{chip.title}}
-                </v-chip>
-            </v-chip-group>
-        </section>
+        <p class="mt-2 description">
+            {{description}}
+        </p>
     </v-card>
 </template>
 
@@ -46,6 +63,7 @@
                     title: 'TAXONOMIES',
                     active: false,
                 }],
+                description: 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer ... ',
                 Chips: {
                     SUBJECTS: [
                         {title: 'subject-Chip1', active: false}, {title: 'subject-Chip2', active: false},
@@ -89,7 +107,6 @@
 <style scoped>
     .chips-container {
         height: 110px;
-        width: 80%;
         overflow-x: hidden;
         scroll-behavior: smooth;
     }
