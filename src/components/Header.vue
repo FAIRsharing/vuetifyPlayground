@@ -1,7 +1,7 @@
 <template>
     <v-app-bar height="100">
         <v-app-bar-nav-icon @click="toggleDrawerLeft" v-if="$vuetify.breakpoint.smAndDown"></v-app-bar-nav-icon>
-        <v-img src="@/assets/fairsharing-logo.svg" height="80" class="d-flex flex-grow-0" contain></v-img>
+        <v-img src="@/assets/fairsharing-logo.svg" height="70" class="d-flex flex-grow-0" contain></v-img>
         <v-spacer></v-spacer>
         <nav>
             <ul v-if="!$vuetify.breakpoint.sm && !$vuetify.breakpoint.xs" id="nav-md-lg-screens">

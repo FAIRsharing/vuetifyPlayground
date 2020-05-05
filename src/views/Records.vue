@@ -13,7 +13,7 @@
             <!-- Title banner -->
             <section
                     id="banner"
-                    class="secondary mb-2"
+                    class="secondary mb-0 "
             >
                 <h1 class="text-center white--text">
                     {{ getTitle }}
@@ -111,7 +111,8 @@
 
     .content-custom {
         max-height: 100vh;
-        scroll-behavior: smooth
+        scroll-behavior: smooth;
+        padding: 0;
     }
 
     #banner {
