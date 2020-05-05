@@ -9,7 +9,7 @@
             <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3" @mouseenter="allowClicking=true" @mouseleave="allowClicking=false">
                 <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">
                     <circle-holder :status="RecordStatus" class="mr-8"/>
-                    <h3 class="max-height " style="width: 60%">Record title example</h3>
+                    <h3 class="max-height " style="width: 60%"><u>Record title example</u></h3>
                 </div>
             </v-col>
             <v-col cols="12" sm="4" md="3" lg="3" xs="12" xl="2" class="mt-2">
