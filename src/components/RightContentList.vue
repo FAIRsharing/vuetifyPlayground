@@ -22,7 +22,7 @@
 
         <v-row class="" v-if="isColumnList"
         >
-            <RecordsCardColumn v-for="n in 30" :key="n"></RecordsCardColumn>
+            <RecordsCardColumn :record-status="n%2===0?'ready':'deprecated'" v-for="n in 30" :key="n"></RecordsCardColumn>
         </v-row>
 
         <!--List Controller-->

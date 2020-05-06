@@ -1,5 +1,5 @@
 <template>
-        <!--Column List-->
+    <!--Column List-->
     <v-col cols="12" sm="12" md="6" lg="4" xl="3">
         <v-card
                 class="pa-2 d-flex  align-center flex-column"
@@ -8,13 +8,22 @@
                 :hover="allowClicking"
                 height="298"
         >
+            <v-row no-gutters class="full-width">
+                <v-col cols="12">
+                    <div class=" d-flex flex-column align-center justify-center">
+                        <circle-holder :status="RecordStatus" />
+                        <h3 class="max-height " ><u>Record title example</u></h3>
+                    </div>
+                </v-col>
+            </v-row>
+
             <!--       Description -->
             <div class="d-flex flex-row" style="width: 70%">
                 <v-divider
                         class="mt-2"
                 ></v-divider>
             </div>
-            <p class="mt-2 description">
+            <p class="ma-2 description text-justify">
                 {{description}}
             </p>
         </v-card>
@@ -23,11 +32,11 @@
 </template>
 
 <script>
-    // import CircleHolder from "./CircleHolder";
+    import CircleHolder from "./CircleHolder";
 
     export default {
         name: "RecordsCardColumn",
-        // components: {CircleHolder},
+        components: {CircleHolder},
         props: {
             isColumnList: {default: false, type: Boolean},
             RecordStatus: null,
