@@ -16,7 +16,7 @@
                 Result
             </h2>
             <section v-for="n in 30" :key="n" class="pt-3 pt-lg-4">
-                <RecordsCard :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCard>
+                <RecordsCardStack :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCardStack>
             </section>
         </article>
 
@@ -32,13 +32,13 @@
 </template>
 
 <script>
-    import RecordsCard from "./RecordsCard";
+    import RecordsCardStack from "./RecordsCardStack";
     import ListController from "./ListController";
     import RecordsCardColumn from "./RecordsCardColumn";
 
     export default {
         name: "RightContentList",
-        components: {RecordsCardColumn, ListController, RecordsCard},
+        components: {RecordsCardColumn, ListController, RecordsCardStack},
         data() {
             return {
                 isColumnList: false

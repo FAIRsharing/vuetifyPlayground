@@ -56,7 +56,7 @@
     import CircleHolder from "./CircleHolder";
 
     export default {
-        name: "RecordsCard",
+        name: "RecordsCardStack",
         components: {CircleHolder},
         props: {
             isColumnList: {default: false, type: Boolean},
