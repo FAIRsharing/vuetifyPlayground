@@ -1,22 +1,52 @@
 <template>
     <!--Column List-->
-    <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+    <v-col class="mt-1" cols="12" sm="12" md="6" lg="4" xl="3">
         <v-card
                 class="pa-2 d-flex  align-center flex-column"
                 outlined
                 tile
                 :hover="allowClicking"
-                height="298"
         >
+            <!-- Title and Icon -->
             <v-row no-gutters class="full-width">
-                <v-col cols="12">
+                <v-col cols="12" @mouseenter="allowClicking=true"
+                       @mouseleave="allowClicking=false">
                     <div class=" d-flex flex-column align-center justify-center">
-                        <circle-holder :status="RecordStatus" />
-                        <h3 class="max-height " ><u>Record title example</u></h3>
+                        <circle-holder :status="RecordStatus"/>
+                        <h3 class="max-height "><u>Record title example</u></h3>
                     </div>
                 </v-col>
             </v-row>
-
+            <!-- Buttons -->
+            <v-row>
+                <v-col>
+                    <section class="ml-2 mb-0 mr-4 d-flex flex-column">
+                        <h4 class="d-none">select Tag type</h4>
+                        <v-btn v-for="(item,index) in buttons" :key="index" :outlined="item.active" text
+                               class="button-text-color"
+                               :color="item.active?'primary':null" @click="changeActiveItem(index)">{{item.title}}
+                        </v-btn>
+                    </section>
+                </v-col>
+            </v-row>
+            <!--Chips-->
+            <v-row no-gutters>
+                <v-col>
+                    <section class="chips-container ">
+                        <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
+                        <v-chip-group
+                                column
+                        >
+                            <v-chip small text-color="secondary" color="secondary"
+                                    v-for="chip in Chips[currentActiveChips]"
+                                    :key="chip.title"
+                                    :close="chip.active"
+                                    outlined @click="toggleChipActiveness(chip)">{{chip.title}}
+                            </v-chip>
+                        </v-chip-group>
+                    </section>
+                </v-col>
+            </v-row>
             <!--       Description -->
             <div class="d-flex flex-row" style="width: 70%">
                 <v-divider
