@@ -1,45 +1,13 @@
 <template>
-        <!--Stack List-->
+        <!--Column List-->
+    <v-col cols="12" sm="12" md="6" lg="4" xl="3">
         <v-card
-                v-if="!isColumnList"
                 class="pa-2 d-flex  align-center flex-column"
                 outlined
                 tile
                 :hover="allowClicking"
+                height="298"
         >
-            <v-row no-gutters class="full-width">
-                <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3" @mouseenter="allowClicking=true"
-                       @mouseleave="allowClicking=false">
-                    <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">
-                        <circle-holder :status="RecordStatus" class="mr-8"/>
-                        <h3 class="max-height " style="width: 60%"><u>Record title example</u></h3>
-                    </div>
-                </v-col>
-                <v-col cols="12" sm="4" md="3" lg="3" xs="12" xl="2" class="mt-2">
-                    <section class="ml-2 mb-0 mr-4 d-flex flex-column">
-                        <h4 class="d-none">select Tag type</h4>
-                        <v-btn v-for="(item,index) in buttons" :key="index" :outlined="item.active" text
-                               class="button-text-color"
-                               :color="item.active?'primary':null" @click="changeActiveItem(index)">{{item.title}}
-                        </v-btn>
-                    </section>
-                </v-col>
-                <v-col sm="8" md="9" lg="9" xs="12" xl="7">
-                    <section class="chips-container ">
-                        <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
-                        <v-chip-group
-                                column
-                        >
-                            <v-chip small text-color="secondary" color="secondary"
-                                    v-for="chip in Chips[currentActiveChips]"
-                                    :key="chip.title"
-                                    :close="chip.active"
-                                    outlined @click="toggleChipActiveness(chip)">{{chip.title}}
-                            </v-chip>
-                        </v-chip-group>
-                    </section>
-                </v-col>
-            </v-row>
             <!--       Description -->
             <div class="d-flex flex-row" style="width: 70%">
                 <v-divider
@@ -50,14 +18,16 @@
                 {{description}}
             </p>
         </v-card>
+    </v-col>
+
 </template>
 
 <script>
-    import CircleHolder from "./CircleHolder";
+    // import CircleHolder from "./CircleHolder";
 
     export default {
-        name: "RecordsCard",
-        components: {CircleHolder},
+        name: "RecordsCardColumn",
+        // components: {CircleHolder},
         props: {
             isColumnList: {default: false, type: Boolean},
             RecordStatus: null,

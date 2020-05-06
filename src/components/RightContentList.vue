@@ -1,5 +1,5 @@
 <template>
-    <section >
+    <section>
         <h1 class="d-none">Records</h1>
 
         <!--Filtered Chips-->
@@ -11,18 +11,22 @@
         <ListController class="mt-2" @ChangeListType="changeListType"></ListController>
 
         <!--List Row-->
-        <article >
+        <article v-if="!isColumnList">
             <h2 class="d-none">
                 Result
             </h2>
-            <section v-for="n in 30" :key="n" class="pt-2 pt-lg-3" >
-                <RecordsCard :record-status="n%2===0?'ready':'deprecated'" :key="n"
-                             v-bind:is-column-list=isColumnList></RecordsCard>
+            <section v-for="n in 30" :key="n" class="pt-3 pt-lg-4">
+                <RecordsCard :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCard>
             </section>
         </article>
 
+        <v-row class="" v-if="isColumnList"
+        >
+            <RecordsCardColumn v-for="n in 30" :key="n"></RecordsCardColumn>
+        </v-row>
+
         <!--List Controller-->
-        <ListController class="mt-2" @ChangeListType="changeListType"></ListController>
+<!--        <ListController class="mt-2 " @ChangeListType="changeListType"></ListController>-->
 
     </section>
 </template>
@@ -30,10 +34,11 @@
 <script>
     import RecordsCard from "./RecordsCard";
     import ListController from "./ListController";
+    import RecordsCardColumn from "./RecordsCardColumn";
 
     export default {
         name: "RightContentList",
-        components: {ListController, RecordsCard},
+        components: {RecordsCardColumn, ListController, RecordsCard},
         data() {
             return {
                 isColumnList: false
@@ -42,7 +47,8 @@
         methods: {
             changeListType: function (listType) {
                 this.isColumnList = listType;
-            },}
+            },
+        }
     }
 </script>
 

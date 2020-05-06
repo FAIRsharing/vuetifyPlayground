@@ -31,7 +31,7 @@
                 <v-col class="mt-2">
                     <RightContentStackList
                             v-scroll:#scroll-target="onScroll"
-                            class="pb-5 mr-2"
+                            class="pb-5 mr-0 mr-md-2"
                     />
                 </v-col>
             </v-row>
