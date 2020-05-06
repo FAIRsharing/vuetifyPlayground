@@ -26,7 +26,7 @@
             <v-row no-gutters
             >
                 <v-col cols="12" lg="4" md="4" class="d-none d-md-flex mt-2 ml-2">
-                    <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
+                    <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'" />
                 </v-col>
                 <v-col class="mt-2">
                     <RightContentStackList
@@ -42,7 +42,7 @@
 <script>
     import LeftPanel from "@/components/LeftPanel";
     import JumpTop from "@/components/jumpToTop";
-    import RightContentStackList from "../components/RightContentStackList";
+    import RightContentStackList from "../components/RightContentList";
 
     export default {
         name: "Records",

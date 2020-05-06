@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section >
         <h1 class="d-none">Records</h1>
 
         <!--Filtered Chips-->
@@ -8,20 +8,21 @@
         </div>
 
         <!--List Controller-->
-        <ListController class="mt-2"></ListController>
+        <ListController class="mt-2" @ChangeListType="changeListType"></ListController>
 
         <!--List Row-->
-        <article>
+        <article >
             <h2 class="d-none">
                 Result
             </h2>
-            <section v-for="n in 30" :key="n" class="pt-2 pt-lg-3">
-                <RecordsCard :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCard>
+            <section v-for="n in 30" :key="n" class="pt-2 pt-lg-3" >
+                <RecordsCard :record-status="n%2===0?'ready':'deprecated'" :key="n"
+                             v-bind:is-column-list=isColumnList></RecordsCard>
             </section>
         </article>
 
         <!--List Controller-->
-        <ListController class="mt-2"></ListController>
+        <ListController class="mt-2" @ChangeListType="changeListType"></ListController>
 
     </section>
 </template>
@@ -31,8 +32,17 @@
     import ListController from "./ListController";
 
     export default {
-        name: "RightContentStackList",
+        name: "RightContentList",
         components: {ListController, RecordsCard},
+        data() {
+            return {
+                isColumnList: false
+            }
+        },
+        methods: {
+            changeListType: function (listType) {
+                this.isColumnList = listType;
+            },}
     }
 </script>
 
