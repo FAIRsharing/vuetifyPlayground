@@ -36,10 +36,10 @@
                 accordion
         >
             <v-expansion-panel
-                    v-for="(item,i) in items"
-                    :key="i"
+                    v-for="(filter,index) in filters"
+                    :key="index"
             >
-                <v-expansion-panel-header>Header {{ item }}</v-expansion-panel-header>
+                <v-expansion-panel-header>{{ filter.value }}</v-expansion-panel-header>
                 <v-expansion-panel-content>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -47,7 +47,6 @@
                 </v-expansion-panel-content>
             </v-expansion-panel>
         </v-expansion-panels>
-
     </div>
 </template>
 
@@ -58,7 +57,10 @@
         data() {
             return {
                 panel: [],
-                items: 20,
+                filters: [{value:'GRANTS'},{value:'ORGANISATION(s)'},{value:'REGISTRY'},{value:'REGISTRY'},
+                    {value:'SPECIES'},{value:'SPECIES'},{value:'ONTOLOGY SUBJECT(s)'},{value:'ONTOLOGY DOMAIN(s)'},{value:'COUNTRIES'}
+                    ,{value:'JOURNAL(s)'},{value:'LICENCE(s)'},{value:'USER DEFINED TAGS'},{value:'TYPE OF RECORDS'}
+                    ],
                 buttonsGroup: [
                     [{title: 'ALL', active: true}, {title: 'RECOMMENDED', active: false}, {
                         title: 'NOT RECOMMENDED',
@@ -98,7 +100,7 @@
             // Create an array the length of our items
             // with all values as true
             all() {
-                this.panel = [...Array(this.items).keys()].map((k, i) => i)
+                this.panel = [...Object(this.filters).keys()].map((k, i) => i)
             },
             // Reset the panel
             none() {
@@ -112,8 +114,8 @@
         },
         created() {
             //open first expandable panel.
-            this.panel['0'] = 0;
-            // this.all();
+            // this.panel['0'] = 0;
+             this.all();
         }
     }
 </script>
