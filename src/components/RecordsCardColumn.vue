@@ -32,7 +32,7 @@
             <!--Chips-->
             <v-row no-gutters>
                 <v-col>
-                    <section class="chips-container ">
+                    <section class="chips-container">
                         <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
                         <v-chip-group
                                 column

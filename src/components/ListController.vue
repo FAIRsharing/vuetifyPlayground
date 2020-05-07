@@ -1,17 +1,15 @@
 <template>
     <div class="d-flex  justify-center">
-        <v-btn-toggle
-                mandatory
-        >
-            <v-btn>
-                <v-icon>mdi-format-align-left</v-icon>
-            </v-btn>
-        </v-btn-toggle>
+        <v-icon x-large class="mouse-cursor" :class="{'active':!isSortHovered}" @mouseenter="isSortHovered=true"
+                @mouseleave="isSortHovered=false">sort
+        </v-icon>
         <v-pagination v-model="page"
                       :length="5"
         />
         <v-icon x-large @click="changeListType('stackList')" :class="{'active':isColumnList}">view_headline</v-icon>
-        <v-icon x-large @click="changeListType('columnList')" style="font-size: 2.8rem" :class="{'active':!isColumnList}">view_column</v-icon>
+        <v-icon x-large @click="changeListType('columnList')" style="font-size: 2.8rem"
+                :class="{'active':!isColumnList}">view_column
+        </v-icon>
     </div>
 </template>
 
@@ -21,6 +19,7 @@
         data() {
             return {
                 page: 1,
+                isSortHovered: false,
                 isColumnList: false // need to go to store to have them synced in everywhere.
             }
         },
@@ -34,11 +33,15 @@
 </script>
 
 <style scoped>
+    .mouse-cursor {
+        cursor: pointer;
+    }
+
     .active {
         color: lightgrey;
     }
 
-    .theme--light.v-icon:focus::after{
+    .theme--light.v-icon:focus::after {
         opacity: 0;
     }
 </style>
