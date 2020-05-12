@@ -39,7 +39,7 @@
                     v-for="(filter,index) in filters"
                     :key="index"
             >
-                <v-expansion-panel-header>{{ filter.value }}</v-expansion-panel-header>
+                <v-expansion-panel-header>{{ filter.filterLabel }}</v-expansion-panel-header>
                 <v-expansion-panel-content class="pl-5 pr-5">
 
                     <v-list dense>
@@ -78,9 +78,9 @@
                     { text: 'Audience', icon: 'mdi-account' },
                 ],
                 panel: [],
-                filters: [{value:'GRANTS'},{value:'ORGANISATION(s)'},{value:'REGISTRY'},{value:'REGISTRY'},
-                    {value:'SPECIES'},{value:'SPECIES'},{value:'ONTOLOGY SUBJECT(s)'},{value:'ONTOLOGY DOMAIN(s)'},{value:'COUNTRIES'}
-                    ,{value:'JOURNAL(s)'},{value:'LICENCE(s)'},{value:'USER DEFINED TAGS'},{value:'TYPE OF RECORDS'}
+                filters: [{filterLabel:'GRANTS'},{filterLabel:'ORGANISATION(s)'},{filterLabel:'REGISTRY'},{filterLabel:'REGISTRY'},
+                    {filterLabel:'SPECIES'},{filterLabel:'SPECIES'},{filterLabel:'ONTOLOGY SUBJECT(s)'},{filterLabel:'ONTOLOGY DOMAIN(s)'},{filterLabel:'COUNTRIES'}
+                    ,{filterLabel:'JOURNAL(s)'},{filterLabel:'LICENCE(s)'},{filterLabel:'USER DEFINED TAGS'},{filterLabel:'TYPE OF RECORDS'}
                     ],
                 buttonsGroup: [
                     [{title: 'ALL', active: true}, {title: 'RECOMMENDED', active: false}, {
