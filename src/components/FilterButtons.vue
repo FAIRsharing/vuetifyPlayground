@@ -42,18 +42,20 @@
                 <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
                 <v-expansion-panel-content class="pl-5 pr-5">
 
-                    <v-list flat >
-                        <v-list-item-group color="primary"  multiple >
+                    <v-list flat>
+                        <v-list-item-group v-model="filterSelected[object.filter]" color="primary" multiple>
                             <v-list-item
-                                    v-for="(subFilter, i) in object.subFilters"
+                                    v-for="(subObject, i) in object.subFilters"
                                     :key="i"
+                                    @click="addParam(subObject.subFilter, subObject,object.filter)"
                             >
-                                <v-list-item-icon>
-                                    <v-icon v-text="subFilter.icon"></v-icon>
-                                </v-list-item-icon>
                                 <v-list-item-content>
-                                    <v-list-item-title v-text="subFilter.subFilter"></v-list-item-title>
+                                    <v-list-item-title v-text="subObject.subFilter"></v-list-item-title>
                                 </v-list-item-content>
+                                <v-list-item-icon>
+                                    <v-icon v-text="subObject.icon"></v-icon>
+                                </v-list-item-icon>
+
                             </v-list-item>
                         </v-list-item-group>
                     </v-list>
@@ -78,6 +80,7 @@
                     {text: 'Audience', icon: 'mdi-account'},
                 ],
                 panel: [],
+                filterSelected: {},
                 filters: [
                     {
                         filter: 'GRANTS',
@@ -153,11 +156,21 @@
             // with all values as true
             all() {
                 // console.log([...Object(this.filters.subFilters).values()])
-                this.panel = [...Object(this.filters[0].subFilters).keys()].map((k, i) => i)
+                this.panel = [...Array(this.filters.length).keys()].map((k, i) => i)
             },
             // Reset the panel
             none() {
                 this.panel = []
+            },
+            addParam: async function (subFilterName, subFilterObject, parentFilterName) {
+                console.log('subFilterName', subFilterName);
+                console.log('subFilterObject', subFilterObject);
+                console.log('parentFilterName', parentFilterName)
+                console.log('filterSelected', this.filterSelected);
+                let clickedObject = this.filters.find(item => item.filter === parentFilterName)
+                console.log('clickedObject', clickedObject);
+                let clickedIndex = clickedObject.subFilters.findIndex(item => item.subFilter === subFilterName);
+                console.log('clickedIndex', clickedIndex);
             }
         },
         computed: {
@@ -169,7 +182,9 @@
             //open first expandable panel.
             // this.panel['0'] = 0;
             this.all();
-            // console.log(this.panel)
+            this.filters.forEach(item => {
+                this.filterSelected[item.filter] = [];
+            });
         }
     }
 </script>
