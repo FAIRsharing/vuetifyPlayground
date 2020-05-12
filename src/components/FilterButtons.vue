@@ -36,23 +36,23 @@
                 accordion
         >
             <v-expansion-panel
-                    v-for="(filter,index) in filters"
+                    v-for="(object,index) in filters"
                     :key="index"
             >
-                <v-expansion-panel-header>{{ filter.filterLabel }}</v-expansion-panel-header>
+                <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
                 <v-expansion-panel-content class="pl-5 pr-5">
 
-                    <v-list dense>
-                        <v-list-item-group v-model="item" color="primary">
+                    <v-list flat >
+                        <v-list-item-group color="primary"  multiple >
                             <v-list-item
-                                    v-for="(item, i) in items"
+                                    v-for="(subFilter, i) in object.subFilters"
                                     :key="i"
                             >
                                 <v-list-item-icon>
-                                    <v-icon v-text="item.icon"></v-icon>
+                                    <v-icon v-text="subFilter.icon"></v-icon>
                                 </v-list-item-icon>
                                 <v-list-item-content>
-                                    <v-list-item-title v-text="item.text"></v-list-item-title>
+                                    <v-list-item-title v-text="subFilter.subFilter"></v-list-item-title>
                                 </v-list-item-content>
                             </v-list-item>
                         </v-list-item-group>
@@ -71,17 +71,48 @@
         data() {
             return {
                 items: [
-                    { text: 'Real-Time', icon: 'mdi-clock' },
-                    { text: 'Audience', icon: 'mdi-account' },
-                    { text: 'Conversions', icon: 'mdi-flag' },
-                    { text: 'Real-Time', icon: 'mdi-clock' },
-                    { text: 'Audience', icon: 'mdi-account' },
+                    {text: 'Real-Time', icon: 'mdi-clock'},
+                    {text: 'Audience', icon: 'mdi-account'},
+                    {text: 'Conversions', icon: 'mdi-flag'},
+                    {text: 'Real-Time', icon: 'mdi-clock'},
+                    {text: 'Audience', icon: 'mdi-account'},
                 ],
                 panel: [],
-                filters: [{filterLabel:'GRANTS'},{filterLabel:'ORGANISATION(s)'},{filterLabel:'REGISTRY'},{filterLabel:'REGISTRY'},
-                    {filterLabel:'SPECIES'},{filterLabel:'SPECIES'},{filterLabel:'ONTOLOGY SUBJECT(s)'},{filterLabel:'ONTOLOGY DOMAIN(s)'},{filterLabel:'COUNTRIES'}
-                    ,{filterLabel:'JOURNAL(s)'},{filterLabel:'LICENCE(s)'},{filterLabel:'USER DEFINED TAGS'},{filterLabel:'TYPE OF RECORDS'}
-                    ],
+                filters: [
+                    {
+                        filter: 'GRANTS',
+                        subFilters: [{
+                            subFilter: 'subfilter-1',
+                            icon: 'mdi-clock',
+                            active: false,
+                            inventory: 15
+                        }, {subFilter: 'subfilter-2', icon: 'mdi-flag', active: false, inventory: 10}]
+                    },
+                    {
+                        filter: 'LICENSES',
+                        subFilters: [{
+                            subFilter: 'subfilter-1',
+                            icon: 'mdi-account',
+                            active: false,
+                            inventory: 15
+                        }, {
+                            subFilter: 'subfilter-2',
+                            icon: 'mdi-flag',
+                            active: false,
+                            inventory: 10
+                        }, {
+                            subFilter: 'subfilter-3',
+                            icon: 'mdi-flag',
+                            active: false,
+                            inventory: 95
+                        }, {
+                            subFilter: 'subfilter-4',
+                            icon: 'mdi-account',
+                            active: false,
+                            inventory: 11
+                        }]
+                    }
+                ],
                 buttonsGroup: [
                     [{title: 'ALL', active: true}, {title: 'RECOMMENDED', active: false}, {
                         title: 'NOT RECOMMENDED',
@@ -121,7 +152,8 @@
             // Create an array the length of our items
             // with all values as true
             all() {
-                this.panel = [...Object(this.filters).keys()].map((k, i) => i)
+                // console.log([...Object(this.filters.subFilters).values()])
+                this.panel = [...Object(this.filters[0].subFilters).keys()].map((k, i) => i)
             },
             // Reset the panel
             none() {
@@ -136,7 +168,8 @@
         created() {
             //open first expandable panel.
             // this.panel['0'] = 0;
-             this.all();
+            this.all();
+            // console.log(this.panel)
         }
     }
 </script>
