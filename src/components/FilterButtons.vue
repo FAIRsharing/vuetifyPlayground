@@ -42,7 +42,7 @@
                 <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
                 <v-expansion-panel-content class="pl-5 pr-5">
 
-                    <v-list flat>
+                    <v-list flat :class="{'fixed-scrollable-height':object.subFilters.length>5}">
                         <v-list-item-group v-model="filterSelected[object.filter]" color="primary" multiple>
                             <v-list-item
                                     v-for="(subObject, i) in object.subFilters"
@@ -114,12 +114,48 @@
                             active: false,
                             inventory: 95
                         }, {
-                            subFilter: 'subfilter-4',
+                            subFilter: 'biology',
                             icon: 'mdi-account',
                             active: false,
                             inventory: 11
-                        }]
-                    }
+                        },
+                            {
+                                subFilter: 'refactor-4',
+                                icon: 'mdi-account',
+                                active: false,
+                                inventory: 76
+                            },
+                            {
+                                subFilter: 'research-3',
+                                icon: 'mdi-flag',
+                                active: false,
+                                inventory: 54
+                            }, {
+                                subFilter: 'arad-4',
+                                icon: 'mdi-account',
+                                active: false,
+                                inventory: 13
+                            },
+                            {
+                                subFilter: 'test',
+                                icon: 'mdi-account',
+                                active: false,
+                                inventory: 2
+                            }]
+                    },
+                    {
+                        filter: 'ORGANISATION(s)',
+                        subFilters: [{
+                            subFilter: 'organ',
+                            icon: 'mdi-clock',
+                            active: false,
+                            inventory: 14
+                        }, {subFilter: 'organ airplane', icon: 'mdi-flag', active: false, inventory: 10},
+                            {subFilter: 'organ car', icon: 'mdi-flag', active: false, inventory: 7},
+                            {subFilter: 'organ flat', icon: 'mdi-flag', active: false, inventory: 45},
+                            {subFilter: 'organ aparat', icon: 'mdi-flag', active: false, inventory: 89},
+                        ]
+                    },
                 ],
                 buttonsGroup: [
                     [{title: 'ALL', active: true}, {title: 'RECOMMENDED', active: false}, {
@@ -271,6 +307,12 @@
         border-right: 15px solid #27aae1;
         border-bottom: 11px solid transparent;
         left: -30%;
+    }
+
+    .fixed-scrollable-height {
+        max-height: 300px;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
 </style>
