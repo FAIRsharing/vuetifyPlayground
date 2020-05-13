@@ -54,7 +54,11 @@
                                                        v-text="subObject.subFilter"></v-list-item-title>
                                 </v-list-item-content>
                                 <v-list-item-icon>
-                                    <div id="badge"><span id="inventory" class="text-primary ">{{subObject.inventory}}</span><span class="triangle-left"></span></div>
+                                    <div :class="!subObject.active?'badge':'badge-active'">
+                                            <span id="inventory"
+                                                  class="text-primary ">{{subObject.inventory}}</span>
+                                        <span v-if="subObject.active" class="triangle-left"></span>
+                                    </div>
                                 </v-list-item-icon>
 
                             </v-list-item>
@@ -219,7 +223,7 @@
         cursor: help;
     }
 
-/*    #badge {
+    .badge {
         width: 35px;
         height: 25px;
         background: white;
@@ -228,15 +232,16 @@
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
         position: relative;
+
         #inventory {
             font-size: small;
             position: absolute;
             top: 6%;
             left: 20%;
         }
-    }*/
+    }
 
-    #badge {
+    .badge-active {
         width: 35px;
         height: 24px;
         background: #27aae1;
@@ -245,6 +250,7 @@
         -moz-border-radius: 5px 5px 5px 5px;
         -webkit-border-radius: 5px 5px 5px 5px;
         position: relative;
+
         #inventory {
             color: white;
             font-size: small;
@@ -254,14 +260,15 @@
         }
 
     }
+
     .triangle-left {
         position: absolute;
         width: 0;
         height: 0;
-        border-top: 13px solid transparent;
+        border-top: 12px solid transparent;
         border-right: 15px solid #27aae1;
-        border-bottom: 10px solid transparent;
-        left: -17px;
+        border-bottom: 11px solid transparent;
+        left: -30%;
     }
 
 </style>
