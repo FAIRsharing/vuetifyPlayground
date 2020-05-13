@@ -176,6 +176,8 @@
                 console.log('clickedObject', clickedObject);
                 let clickedIndex = clickedObject.subFilters.findIndex(item => item.subFilter === subFilterName);
                 console.log('clickedIndex', clickedIndex);
+                console.log(clickedObject.subFilters[clickedIndex]);
+                clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
             }
         },
         computed: {
