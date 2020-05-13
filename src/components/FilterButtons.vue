@@ -50,10 +50,11 @@
                                     @click="addParam(subObject.subFilter, subObject,object.filter)"
                             >
                                 <v-list-item-content>
-                                    <v-list-item-title v-text="subObject.subFilter"></v-list-item-title>
+                                    <v-list-item-title class="text-primary"
+                                                       v-text="subObject.subFilter"></v-list-item-title>
                                 </v-list-item-content>
                                 <v-list-item-icon>
-                                    <v-icon v-text="subObject.icon"></v-icon>
+                                    <div id="badge"><span id="inventory" class="text-primary ">{{subObject.inventory}}</span><span class="triangle-left"></span></div>
                                 </v-list-item-icon>
 
                             </v-list-item>
@@ -97,7 +98,7 @@
                             subFilter: 'subfilter-1',
                             icon: 'mdi-account',
                             active: false,
-                            inventory: 15
+                            inventory: 100
                         }, {
                             subFilter: 'subfilter-2',
                             icon: 'mdi-flag',
@@ -191,7 +192,6 @@
 
 <style scoped lang="scss">
 
-
     .button-style-md-screens {
         font-size: 9px !important;
     }
@@ -218,4 +218,50 @@
         font-size: 20px;
         cursor: help;
     }
+
+/*    #badge {
+        width: 35px;
+        height: 25px;
+        background: white;
+        border: #27aae1 solid 1px;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        position: relative;
+        #inventory {
+            font-size: small;
+            position: absolute;
+            top: 6%;
+            left: 20%;
+        }
+    }*/
+
+    #badge {
+        width: 35px;
+        height: 24px;
+        background: #27aae1;
+        border: #27aae1 solid 1px;
+        border-radius: 5px 5px 5px 5px;
+        -moz-border-radius: 5px 5px 5px 5px;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        position: relative;
+        #inventory {
+            color: white;
+            font-size: small;
+            position: absolute;
+            top: 6%;
+            left: 20%;
+        }
+
+    }
+    .triangle-left {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-right: 15px solid #27aae1;
+        border-bottom: 10px solid transparent;
+        left: -17px;
+    }
+
 </style>
