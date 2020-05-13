@@ -11,22 +11,26 @@
         <ListController class="mt-2" @ChangeListType="changeListType"></ListController>
 
         <!--List Row-->
-        <article v-if="!isColumnList">
-            <h2 class="d-none">
-                Result
-            </h2>
-            <section v-for="n in 30" :key="n" class="pt-3 pt-lg-4">
-                <RecordsCardStack :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCardStack>
-            </section>
-        </article>
+        <div :class="['opacity-0-transition',{'opacity-1-transition':!isColumnList}]">
+            <article v-if="!isColumnList">
+                <h2 class="d-none">
+                    Result
+                </h2>
+                <section v-for="n in 30" :key="n" class="pt-3 pt-lg-4">
+                    <RecordsCardStack :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCardStack>
+                </section>
+            </article>
+        </div>
 
-        <v-row class="" v-if="isColumnList"
-        >
-            <RecordsCardColumn :record-status="n%2===0?'ready':'deprecated'" v-for="n in 30" :key="n"></RecordsCardColumn>
-        </v-row>
+        <div :class="['opacity-0-transition',{'opacity-1-transition':isColumnList}]">
+            <v-row v-show="isColumnList">
+                <RecordsCardColumn :record-status="n%2===0?'ready':'deprecated'" v-for="n in 30"
+                                   :key="n"></RecordsCardColumn>
+            </v-row>
+        </div>
 
         <!--List Controller-->
-<!--        <ListController class="mt-2 " @ChangeListType="changeListType"></ListController>-->
+        <!--        <ListController class="mt-2 " @ChangeListType="changeListType"></ListController>-->
 
     </section>
 </template>
@@ -51,11 +55,3 @@
         }
     }
 </script>
-
-<style scoped>
-    ul {
-        list-style: none;
-    }
-
-
-</style>
