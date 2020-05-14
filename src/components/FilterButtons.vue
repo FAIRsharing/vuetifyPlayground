@@ -65,6 +65,12 @@
                         </v-list-item-group>
                     </v-list>
                     <v-autocomplete
+                            class="mt-2"
+                            :items="retSubFilter(object.subFilters)"
+                            v-model="selectedSubFilter"
+                            solo
+                            dense
+                            clearable
                             v-if="object.subFilters.length>5"
                                   :placeholder="`Search through ${object.filter}`"
                     ></v-autocomplete>
@@ -82,6 +88,7 @@
         props: {mdScreens: null},
         data() {
             return {
+                selectedSubFilter: null,
                 items: [
                     {text: 'Real-Time', icon: 'mdi-clock'},
                     {text: 'Audience', icon: 'mdi-account'},
@@ -194,6 +201,11 @@
             }
         },
         methods: {
+            retSubFilter(subFiltersObject){
+                let outPut = [];
+                subFiltersObject.forEach(object=>outPut.push(object.subFilter));
+                return outPut;
+            },
             selectFilter: function (index, selectedButtonsArray) {
                 selectedButtonsArray.map(item => item.active = false);
                 selectedButtonsArray[index].active = true;
@@ -219,7 +231,15 @@
                 console.log('clickedIndex', clickedIndex);
                 console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
-            }
+            },
+            customFilter (item, queryText) {
+                const textOne = item.name.toLowerCase()
+                const textTwo = item.abbr.toLowerCase()
+                const searchText = queryText.toLowerCase()
+
+                return textOne.indexOf(searchText) > -1 ||
+                    textTwo.indexOf(searchText) > -1
+            },
         },
         computed: {
             getRecordStatus: function () {
