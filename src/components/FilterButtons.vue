@@ -66,13 +66,13 @@
                     </v-list>
                     <v-autocomplete
                             class="mt-2"
-                            :items="retSubFilter(object.subFilters)"
-                            v-model="selectedSubFilter"
+                            :items="retSubFilter(object)"
+                            v-model="object.filterSelected"
                             solo
                             dense
                             clearable
                             v-if="object.subFilters.length>5"
-                                  :placeholder="`Search through ${object.filter}`"
+                            :placeholder="`Search through ${object.filter}`"
                     ></v-autocomplete>
 
 
@@ -88,6 +88,7 @@
         props: {mdScreens: null},
         data() {
             return {
+                componentKey:0,
                 selectedSubFilter: null,
                 items: [
                     {text: 'Real-Time', icon: 'mdi-clock'},
@@ -101,6 +102,7 @@
                 filters: [
                     {
                         filter: 'GRANTS',
+                        filterSelected: {},
                         subFilters: [{
                             subFilter: 'subfilter-1',
                             icon: 'mdi-clock',
@@ -110,6 +112,7 @@
                     },
                     {
                         filter: 'LICENSES',
+                        filterSelected: {},
                         subFilters: [{
                             subFilter: 'subfilter-1',
                             icon: 'mdi-account',
@@ -157,6 +160,7 @@
                     },
                     {
                         filter: 'ORGANISATION(s)',
+                        filterSelected: {},
                         subFilters: [{
                             subFilter: 'organ',
                             icon: 'mdi-clock',
@@ -201,10 +205,29 @@
             }
         },
         methods: {
-            retSubFilter(subFiltersObject){
+            retSubFilter(subFiltersObject) {
                 let outPut = [];
-                subFiltersObject.forEach(object=>outPut.push(object.subFilter));
-                return outPut;
+
+               try {
+                   if(subFiltersObject.filterSelected){
+                   console.log('subFiltersObject from ret ', subFiltersObject.filterSelected)
+                   if (!subFiltersObject.filterSelected.length) { // if there is nothing in search box
+                       subFiltersObject.subFilters.forEach(object => outPut.push(object.subFilter));
+                   } else {
+                       // subFiltersObject.subFilters.forEach(object => object.subFilter.toLowerCase().includes(subFiltersObject.filterSelected)
+                       subFiltersObject.subFilters.filter(item => {
+                               return item.subFilter.toLowerCase() === subFiltersObject.filterSelected;
+                           }
+                       )
+                       console.log('yo',subFiltersObject.filterSelected)
+                       outPut.push(subFiltersObject.filterSelected);
+                   }
+                   console.log(outPut)
+                   return outPut;
+                   }
+               } catch (e) {
+                   console.log(e);
+               }
             },
             selectFilter: function (index, selectedButtonsArray) {
                 selectedButtonsArray.map(item => item.active = false);
@@ -232,19 +255,12 @@
                 console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
             },
-            customFilter (item, queryText) {
-                const textOne = item.name.toLowerCase()
-                const textTwo = item.abbr.toLowerCase()
-                const searchText = queryText.toLowerCase()
-
-                return textOne.indexOf(searchText) > -1 ||
-                    textTwo.indexOf(searchText) > -1
+            searchSubFilters() {
+                console.log('SearchSubFilters', this.selectedSubFilter);
             },
-        },
-        computed: {
-            getRecordStatus: function () {
-                return this.statusStyles['ready'];
-            }
+            clearSubFilters() {
+                console.log('clear', this.selectedSubFilter);
+            },
         },
         created() {
             //open first expandable panel.
@@ -253,6 +269,7 @@
             this.filters.forEach(item => {
                 this.filterSelected[item.filter] = [];
             });
+
         }
     }
 </script>
