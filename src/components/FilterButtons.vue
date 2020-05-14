@@ -36,7 +36,7 @@
                 accordion
         >
             <v-expansion-panel
-                    v-for="(object,index) in filters"
+                    v-for="(object,index) in searchSubFilters"
                     :key="index"
             >
                 <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
@@ -64,17 +64,26 @@
                             </v-list-item>
                         </v-list-item-group>
                     </v-list>
-                    <v-autocomplete
-                            class="mt-2"
-                            :items="retSubFilter(object)"
-                            v-model="object.filterSelected"
+                    <!--
+                                        <v-autocomplete
+                                                class="mt-2"
+                                                :items="retSubFilter(object)"
+                                                v-model="object.filterSelected"
+                                                solo
+                                                dense
+                                                clearable
+                                                 v-if="object.subFilters.length>5"
+                                                :placeholder="`Search through ${object.filter}`"
+                                        ></v-autocomplete>
+                    -->
+                    <v-text-field
+                            v-if="object.subFilters.length>5"
                             solo
                             dense
                             clearable
-                            v-if="object.subFilters.length>5"
+                            v-model="searchTerm"
                             :placeholder="`Search through ${object.filter}`"
-                    ></v-autocomplete>
-
+                    ></v-text-field>
 
                 </v-expansion-panel-content>
             </v-expansion-panel>
@@ -88,7 +97,7 @@
         props: {mdScreens: null},
         data() {
             return {
-                componentKey:0,
+                searchTerm: '',
                 selectedSubFilter: null,
                 items: [
                     {text: 'Real-Time', icon: 'mdi-clock'},
@@ -208,26 +217,26 @@
             retSubFilter(subFiltersObject) {
                 let outPut = [];
 
-               try {
-                   if(subFiltersObject.filterSelected){
-                   console.log('subFiltersObject from ret ', subFiltersObject.filterSelected)
-                   if (!subFiltersObject.filterSelected.length) { // if there is nothing in search box
-                       subFiltersObject.subFilters.forEach(object => outPut.push(object.subFilter));
-                   } else {
-                       // subFiltersObject.subFilters.forEach(object => object.subFilter.toLowerCase().includes(subFiltersObject.filterSelected)
-                       subFiltersObject.subFilters.filter(item => {
-                               return item.subFilter.toLowerCase() === subFiltersObject.filterSelected;
-                           }
-                       )
-                       console.log('yo',subFiltersObject.filterSelected)
-                       outPut.push(subFiltersObject.filterSelected);
-                   }
-                   console.log(outPut)
-                   return outPut;
-                   }
-               } catch (e) {
-                   console.log(e);
-               }
+                try {
+                    if (subFiltersObject.filterSelected) {
+                        console.log('subFiltersObject from ret ', subFiltersObject.filterSelected)
+                        if (!subFiltersObject.filterSelected.length) { // if there is nothing in search box
+                            subFiltersObject.subFilters.forEach(object => outPut.push(object.subFilter));
+                        } else {
+                            // subFiltersObject.subFilters.forEach(object => object.subFilter.toLowerCase().includes(subFiltersObject.filterSelected)
+                            subFiltersObject.subFilters.filter(item => {
+                                    return item.subFilter.toLowerCase() === subFiltersObject.filterSelected;
+                                }
+                            )
+                            console.log('yo', subFiltersObject.filterSelected)
+                            outPut.push(subFiltersObject.filterSelected);
+                        }
+                        console.log(outPut)
+                        return outPut;
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
             },
             selectFilter: function (index, selectedButtonsArray) {
                 selectedButtonsArray.map(item => item.active = false);
@@ -255,11 +264,35 @@
                 console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
             },
-            searchSubFilters() {
-                console.log('SearchSubFilters', this.selectedSubFilter);
-            },
+
             clearSubFilters() {
                 console.log('clear', this.selectedSubFilter);
+            },
+        }
+        ,
+        computed: {
+            searchSubFilters() {
+                let _module = this;
+                console.log('searchTerm ', this.searchTerm);
+                if (this.searchTerm === '')
+                    return this.filters;
+                else {
+
+                    let a = _module.filters[1].subFilters.filter(item => item.subFilter.includes(this.searchTerm));
+                    console.log(a);
+                    // object problem
+                    _module.filters[1] = a.toPlainObject;
+                    console.log('updatedFilters 0', _module.filters[0].subFilters)
+                    console.log('updatedFilters 1', _module.filters[1].subFilters)
+                    console.log('updatedFilters 2', _module.filters[2].subFilters)
+                    return _module.filters;
+                }
+                /*
+                console.log(this.filters[1])
+                return this.filters[1].subFilters.filter(item => {
+                    item.subFilter.toLowerCase().includes(this.searchTerm.toLowerCase())
+                })*/
+
             },
         },
         created() {
