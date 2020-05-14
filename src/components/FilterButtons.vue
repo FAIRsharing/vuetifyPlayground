@@ -36,8 +36,8 @@
                 accordion
         >
             <v-expansion-panel
-                    v-for="object in searchSubFilters"
-                    :key="object.filter+'_'+object.updateKey"
+                    v-for="(object,index) in searchSubFilters"
+                    :key="object.filter+'_'+index"
             >
                 <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
                 <v-expansion-panel-content class="pl-5 pr-5">
@@ -45,10 +45,11 @@
                     <v-list flat :class="{'fixed-scrollable-height':object.subFilters.length>5}">
                         <v-list-item-group v-model="filterSelected[object.filter]" color="primary" multiple>
                             <v-list-item
-                                    v-for="(subObject, i) in object.subFilters"
-                                    :key="i"
+                                    v-for="subObject in object.subFilters"
+                                    :key="subObject.subFilter+'_'+object.updateKey"
                                     @click="addParam(subObject.subFilter, subObject,object.filter)"
                             >
+                                {{subObject.subFilter+'_'+object.updateKey}}
                                 <v-list-item-content>
                                     <v-list-item-title class="text-primary"
                                                        v-text="subObject.subFilter"></v-list-item-title>
@@ -267,7 +268,9 @@
                 console.log('clickedIndex', clickedIndex);
                 console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
+
                 this.$forceUpdate();
+                // clickedObject.updateKey++;
             },
             createIndexForFilters: function () {
                 this.filters.forEach(item => {
@@ -292,7 +295,7 @@
                     _module.filters[1] = {
                         filter: 'LICENSES',
                         filterSelected: {},
-                        updateKey:0,
+                        updateKey: 0,
                         subFilters: [{
                             subFilter: 'subfilter-1',
                             icon: 'mdi-account',
