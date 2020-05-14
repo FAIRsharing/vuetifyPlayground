@@ -12,7 +12,7 @@
 
         <!--List Row-->
         <div :class="['opacity-0-transition',{'opacity-1-transition':!isColumnList}]">
-            <article v-if="!isColumnList">
+        <article v-if="!isColumnList">
                 <h2 class="d-none">
                     Result
                 </h2>

@@ -64,6 +64,11 @@
                             </v-list-item>
                         </v-list-item-group>
                     </v-list>
+                    <v-autocomplete
+                            v-if="object.subFilters.length>5"
+                                  :placeholder="`Search through ${object.filter}`"
+                    ></v-autocomplete>
+
 
                 </v-expansion-panel-content>
             </v-expansion-panel>
@@ -313,6 +318,7 @@
         max-height: 300px;
         overflow-y: scroll;
         overflow-x: hidden;
+        scroll-behavior: smooth;
     }
 
 </style>
