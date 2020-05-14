@@ -49,13 +49,11 @@
                                     :key="subObject.subFilter+'_'+object.updateKey"
                                     @click="addParam(subObject.subFilter, subObject,object.filter)"
                             >
-                                {{subObject.subFilter+'_'+object.updateKey}}
                                 <v-list-item-content>
                                     <v-list-item-title class="text-primary"
                                                        v-text="subObject.subFilter"></v-list-item-title>
                                 </v-list-item-content>
                                 <v-list-item-icon>
-                                    {{subObject.active}}
                                     <div :class="!subObject.active?'badge':'badge-active'">
                                             <span id="inventory"
                                                   class="text-primary ">{{subObject.inventory}}</span>
