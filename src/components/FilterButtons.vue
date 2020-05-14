@@ -36,8 +36,8 @@
                 accordion
         >
             <v-expansion-panel
-                    v-for="(object,index) in searchSubFilters"
-                    :key="index"
+                    v-for="object in searchSubFilters"
+                    :key="object.filter+'_'+object.updateKey"
             >
                 <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
                 <v-expansion-panel-content class="pl-5 pr-5">
@@ -54,6 +54,7 @@
                                                        v-text="subObject.subFilter"></v-list-item-title>
                                 </v-list-item-content>
                                 <v-list-item-icon>
+                                    {{subObject.active}}
                                     <div :class="!subObject.active?'badge':'badge-active'">
                                             <span id="inventory"
                                                   class="text-primary ">{{subObject.inventory}}</span>
@@ -112,6 +113,7 @@
                     {
                         filter: 'GRANTS',
                         filterSelected: {},
+                        updateKey: 0,
                         subFilters: [{
                             subFilter: 'subfilter-1',
                             icon: 'mdi-clock',
@@ -122,6 +124,7 @@
                     {
                         filter: 'LICENSES',
                         filterSelected: {},
+                        updateKey: 0,
                         subFilters: [{
                             subFilter: 'subfilter-1',
                             icon: 'mdi-account',
@@ -170,6 +173,7 @@
                     {
                         filter: 'ORGANISATION(s)',
                         filterSelected: {},
+                        updateKey: 0,
                         subFilters: [{
                             subFilter: 'organ',
                             icon: 'mdi-clock',
@@ -263,8 +267,13 @@
                 console.log('clickedIndex', clickedIndex);
                 console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
+                this.$forceUpdate();
             },
-
+            createIndexForFilters: function () {
+                this.filters.forEach(item => {
+                    this.filterSelected[item.filter] = [];
+                });
+            },
             clearSubFilters() {
                 console.log('clear', this.selectedSubFilter);
             },
@@ -277,11 +286,21 @@
                 if (this.searchTerm === '')
                     return this.filters;
                 else {
-
                     let a = _module.filters[1].subFilters.filter(item => item.subFilter.includes(this.searchTerm));
                     console.log(a);
                     // object problem
-                    _module.filters[1] = a.toPlainObject;
+                    _module.filters[1] = {
+                        filter: 'LICENSES',
+                        filterSelected: {},
+                        updateKey:0,
+                        subFilters: [{
+                            subFilter: 'subfilter-1',
+                            icon: 'mdi-account',
+                            active: false,
+                            inventory: 100
+                        }]
+                    };
+                    alert(_module.filters[1].updateKey);
                     console.log('updatedFilters 0', _module.filters[0].subFilters)
                     console.log('updatedFilters 1', _module.filters[1].subFilters)
                     console.log('updatedFilters 2', _module.filters[2].subFilters)
@@ -299,10 +318,7 @@
             //open first expandable panel.
             // this.panel['0'] = 0;
             this.all();
-            this.filters.forEach(item => {
-                this.filterSelected[item.filter] = [];
-            });
-
+            this.createIndexForFilters();
         }
     }
 </script>
