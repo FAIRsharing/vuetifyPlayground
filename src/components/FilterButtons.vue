@@ -36,7 +36,7 @@
                 accordion
         >
             <ExpansionPanel
-                    v-for="object in searchSubFilters"
+                    v-for="object in filters"
                     :key="object.filter+'_'+object.updateKey"
                     :object="object"
                     @AddParam="addParam"
@@ -176,30 +176,6 @@
             }
         },
         methods: {
-            retSubFilter(subFiltersObject) {
-                let outPut = [];
-
-                try {
-                    if (subFiltersObject.filterSelected) {
-                        console.log('subFiltersObject from ret ', subFiltersObject.filterSelected)
-                        if (!subFiltersObject.filterSelected.length) { // if there is nothing in search box
-                            subFiltersObject.subFilters.forEach(object => outPut.push(object.subFilter));
-                        } else {
-                            // subFiltersObject.subFilters.forEach(object => object.subFilter.toLowerCase().includes(subFiltersObject.filterSelected)
-                            subFiltersObject.subFilters.filter(item => {
-                                    return item.subFilter.toLowerCase() === subFiltersObject.filterSelected;
-                                }
-                            )
-                            console.log('yo', subFiltersObject.filterSelected)
-                            outPut.push(subFiltersObject.filterSelected);
-                        }
-                        console.log(outPut)
-                        return outPut;
-                    }
-                } catch (e) {
-                    console.log(e);
-                }
-            },
             selectFilter: function (index, selectedButtonsArray) {
                 selectedButtonsArray.map(item => item.active = false);
                 selectedButtonsArray[index].active = true;
@@ -233,45 +209,6 @@
                 this.filters.forEach(item => {
                     this.filterSelected[item.filter] = [];
                 });
-            },
-            clearSubFilters() {
-                // alert('a')
-            },
-        }
-        ,
-        computed: {
-            searchSubFilters() {
-                let _module = this;
-                // alert(_module.filters[1].searchTerm);
-                if (_module.filters[1].searchTerm === null || _module.filters[1].searchTerm === '')
-                    return this.filters;
-                else {
-                    let a = _module.filters[1].subFilters.filter(item => item.subFilter.includes(_module.filters[1].searchTerm));
-                    console.log(a);
-                    // object problem
-                    _module.filters[1] = {
-                        filter: 'LICENSES',
-                        filterSelected: {},
-                        searchTerm: _module.filters[1].searchTerm,
-                        updateKey: 0,
-                        subFilters: [{
-                            subFilter: 'subfilter-1',
-                            icon: 'mdi-account',
-                            active: false,
-                            inventory: 100
-                        }]
-                    };
-                    console.log('updatedFilters 0', _module.filters[0].subFilters)
-                    console.log('updatedFilters 1', _module.filters[1].subFilters)
-                    console.log('updatedFilters 2', _module.filters[2].subFilters)
-                    return _module.filters;
-                }
-                /*
-                console.log(this.filters[1])
-                return this.filters[1].subFilters.filter(item => {
-                    item.subFilter.toLowerCase().includes(this.searchTerm.toLowerCase())
-                })*/
-
             },
         },
         created() {

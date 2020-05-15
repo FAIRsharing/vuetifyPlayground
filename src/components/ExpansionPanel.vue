@@ -8,7 +8,7 @@
             <v-list flat :class="{'fixed-scrollable-height':object.subFilters.length>5}">
                 <v-list-item-group color="primary" multiple>
                     <v-list-item
-                            v-for="(subObject,index) in object.subFilters"
+                            v-for="(subObject,index) in searchSubFilters.subFilters"
                             :key="subObject.subFilter+'_'+index"
                             @click="$emit('AddParam',subObject.subFilter, subObject,object.filter)"
                     >
@@ -28,14 +28,14 @@
                 </v-list-item-group>
             </v-list>
             <v-text-field
+                    v-if="object.subFilters.length>5"
                     class="mt-2"
                     solo
                     dense
                     clearable
-                    v-model="object.searchTerm"
+                    v-model="searchTerm"
                     :placeholder="`Search through ${object.filter}`"
             ></v-text-field>
-            {{object.searchTerm}}
         </v-expansion-panel-content>
     </v-expansion-panel>
 
@@ -45,7 +45,29 @@
     export default {
         name: "ExpansionPanel",
         props: {object: null},
-
+        data: () => {
+            return {
+                searchTerm: ''
+            }
+        },
+        computed: {
+            searchSubFilters: function () {
+                let _module = this;
+                if (_module.searchTerm === null || _module.searchTerm === '') {
+                    return _module.object;
+                } else {
+                    let output = {subFilters: []}
+                    _module.object.subFilters.forEach(item => {
+                        if (item.subFilter.includes(_module.searchTerm)) {
+                            output.subFilters.push(item)
+                        }
+                    });
+                    // output = _module.object.subFilters.find(item => item.subFilter.includes(_module.searchTerm));
+                    console.log('output', output)
+                    return output;
+                }
+            }
+        }
     }
 </script>
 
