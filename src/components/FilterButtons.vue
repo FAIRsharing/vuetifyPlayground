@@ -226,7 +226,7 @@
                 console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
 
-                this.$forceUpdate();
+                // this.$forceUpdate();
                 // clickedObject.updateKey++;
             },
             createIndexForFilters: function () {
