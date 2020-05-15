@@ -35,65 +35,22 @@
                 hover
                 accordion
         >
-            <v-expansion-panel
-                    v-for="(object,index) in searchSubFilters"
-                    :key="object.filter+'_'+index"
-            >
-                <v-expansion-panel-header>{{ object.filter}}</v-expansion-panel-header>
-                <v-expansion-panel-content class="pl-5 pr-5">
-
-                    <v-list flat :class="{'fixed-scrollable-height':object.subFilters.length>5}">
-                        <v-list-item-group v-model="filterSelected[object.filter]" color="primary" multiple>
-                            <v-list-item
-                                    v-for="subObject in object.subFilters"
-                                    :key="subObject.subFilter+'_'+object.updateKey"
-                                    @click="addParam(subObject.subFilter, subObject,object.filter)"
-                            >
-                                <v-list-item-content>
-                                    <v-list-item-title class="text-primary"
-                                                       v-text="subObject.subFilter"></v-list-item-title>
-                                </v-list-item-content>
-                                <v-list-item-icon>
-                                    <div :class="!subObject.active?'badge':'badge-active'">
-                                            <span id="inventory"
-                                                  class="text-primary ">{{subObject.inventory}}</span>
-                                        <span v-if="subObject.active" class="triangle-left"></span>
-                                    </div>
-                                </v-list-item-icon>
-
-                            </v-list-item>
-                        </v-list-item-group>
-                    </v-list>
-                    <!--
-                                        <v-autocomplete
-                                                class="mt-2"
-                                                :items="retSubFilter(object)"
-                                                v-model="object.filterSelected"
-                                                solo
-                                                dense
-                                                clearable
-                                                 v-if="object.subFilters.length>5"
-                                                :placeholder="`Search through ${object.filter}`"
-                                        ></v-autocomplete>
-                    -->
-                    <v-text-field
-                            v-if="object.subFilters.length>5"
-                            solo
-                            dense
-                            clearable
-                            v-model="searchTerm"
-                            :placeholder="`Search through ${object.filter}`"
-                    ></v-text-field>
-
-                </v-expansion-panel-content>
-            </v-expansion-panel>
+            <ExpansionPanel
+                    v-for="object in searchSubFilters"
+                    :key="object.filter+'_'+object.updateKey"
+                    :object="object"
+                    @AddParam="addParam"
+            />
         </v-expansion-panels>
     </div>
 </template>
 
 <script>
+    import ExpansionPanel from "./ExpansionPanel";
+
     export default {
         name: "FilterButtons",
+        components: {ExpansionPanel},
         props: {mdScreens: null},
         data() {
             return {
@@ -112,6 +69,7 @@
                     {
                         filter: 'GRANTS',
                         filterSelected: {},
+                        searchTerm: null,
                         updateKey: 0,
                         subFilters: [{
                             subFilter: 'subfilter-1',
@@ -123,6 +81,7 @@
                     {
                         filter: 'LICENSES',
                         filterSelected: {},
+                        searchTerm: null,
                         updateKey: 0,
                         subFilters: [{
                             subFilter: 'subfilter-1',
@@ -276,23 +235,24 @@
                 });
             },
             clearSubFilters() {
-                console.log('clear', this.selectedSubFilter);
+                // alert('a')
             },
         }
         ,
         computed: {
             searchSubFilters() {
                 let _module = this;
-                console.log('searchTerm ', this.searchTerm);
-                if (this.searchTerm === '')
+                // alert(_module.filters[1].searchTerm);
+                if (_module.filters[1].searchTerm === null || _module.filters[1].searchTerm === '')
                     return this.filters;
                 else {
-                    let a = _module.filters[1].subFilters.filter(item => item.subFilter.includes(this.searchTerm));
+                    let a = _module.filters[1].subFilters.filter(item => item.subFilter.includes(_module.filters[1].searchTerm));
                     console.log(a);
                     // object problem
                     _module.filters[1] = {
                         filter: 'LICENSES',
                         filterSelected: {},
+                        searchTerm: _module.filters[1].searchTerm,
                         updateKey: 0,
                         subFilters: [{
                             subFilter: 'subfilter-1',
@@ -301,7 +261,6 @@
                             inventory: 100
                         }]
                     };
-                    alert(_module.filters[1].updateKey);
                     console.log('updatedFilters 0', _module.filters[0].subFilters)
                     console.log('updatedFilters 1', _module.filters[1].subFilters)
                     console.log('updatedFilters 2', _module.filters[2].subFilters)
@@ -353,59 +312,5 @@
         cursor: help;
     }
 
-    .badge {
-        width: 35px;
-        height: 25px;
-        background: white;
-        border: #27aae1 solid 1px;
-        border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        position: relative;
-
-        #inventory {
-            font-size: small;
-            position: absolute;
-            top: 6%;
-            left: 20%;
-        }
-    }
-
-    .badge-active {
-        width: 35px;
-        height: 24px;
-        background: #27aae1;
-        border: #27aae1 solid 1px;
-        border-radius: 5px 5px 5px 5px;
-        -moz-border-radius: 5px 5px 5px 5px;
-        -webkit-border-radius: 5px 5px 5px 5px;
-        position: relative;
-
-        #inventory {
-            color: white;
-            font-size: small;
-            position: absolute;
-            top: 6%;
-            left: 20%;
-        }
-
-    }
-
-    .triangle-left {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-top: 12px solid transparent;
-        border-right: 15px solid #27aae1;
-        border-bottom: 11px solid transparent;
-        left: -30%;
-    }
-
-    .fixed-scrollable-height {
-        max-height: 300px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-    }
 
 </style>
