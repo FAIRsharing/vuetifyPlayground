@@ -1,7 +1,6 @@
 <template>
     <!--Stack List-->
     <v-card
-            v-if="!isColumnList"
             class="pa-2 d-flex  align-center flex-column"
             outlined
             tile
@@ -60,7 +59,6 @@
         name: "RecordsCardStack",
         components: {CircleHolder},
         props: {
-            isColumnList: {default: false, type: Boolean},
             RecordStatus: null,
         },
         data() {
@@ -134,7 +132,7 @@
     }
 
     .ribbon span {
-        font-size: 10px;
+        font-size: .54rem;
         font-weight: bold;
         color: #FFF;
         text-transform: uppercase;
@@ -155,7 +153,7 @@
     .ribbon span::before {
         content: "";
         position: absolute;
-        left: 0px;
+        left: 0;
         top: 100%;
         z-index: -1;
         border-left: 3px solid #A70C0C;
@@ -167,7 +165,7 @@
     .ribbon span::after {
         content: "";
         position: absolute;
-        right: 0px;
+        right: 0;
         top: 100%;
         z-index: -1;
         border-left: 3px solid transparent;

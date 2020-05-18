@@ -68,7 +68,6 @@
         name: "RecordsCardColumn",
         components: {CircleHolder},
         props: {
-            isColumnList: {default: false, type: Boolean},
             RecordStatus: null,
         },
         data() {
