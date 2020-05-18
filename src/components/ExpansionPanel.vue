@@ -27,15 +27,27 @@
                     </v-list-item>
                 </v-list-item-group>
             </v-list>
-            <v-text-field
+            <!--
+                        <v-text-field
+                                v-if="object.subFilters.length>5"
+                                class="mt-2"
+                                solo
+                                dense
+                                clearable
+                                v-model="searchTerm"
+                                :placeholder="`Search through ${object.filter}`"
+                        ></v-text-field>
+            -->
+            <v-autocomplete
                     v-if="object.subFilters.length>5"
                     class="mt-2"
+                    :items="returnSubFilters(object.subFilters)"
+                    v-model="object.filterSelected"
                     solo
                     dense
                     clearable
-                    v-model="searchTerm"
                     :placeholder="`Search through ${object.filter}`"
-            ></v-text-field>
+            ></v-autocomplete>
         </v-expansion-panel-content>
     </v-expansion-panel>
 
@@ -66,6 +78,32 @@
                     console.log('output', output)
                     return output;
                 }
+            },
+        },
+        methods: {
+            returnSubFilters(subFiltersObject) {
+                let output = [];
+                subFiltersObject.forEach(object => output.push(object.subFilter));
+                return output;
+                /*        if (subFiltersObject.filterSelected) {
+                            console.log('subFiltersObject from ret ', subFiltersObject.filterSelected);
+                            if (!subFiltersObject.filterSelected.length) { // if there is nothing in search box
+                                subFiltersObject.subFilters.forEach(object => outPut.push(object.subFilter));
+                            } else {
+                                // subFiltersObject.subFilters.forEach(object => object.subFilter.toLowerCase().includes(subFiltersObject.filterSelected)
+                                subFiltersObject.subFilters.filter(item => {
+                                        return item.subFilter.toLowerCase() === subFiltersObject.filterSelected;
+                                    }
+                                )
+                                console.log('yo', subFiltersObject.filterSelected);
+                                outPut.push(subFiltersObject.filterSelected);
+                            }
+                            console.log(outPut);
+                            return outPut;
+                        }else
+                        {
+                            return {};
+                        }*/
             }
         }
     }
