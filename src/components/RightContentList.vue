@@ -12,19 +12,20 @@
 
         <!--List Row-->
         <div :class="['opacity-0-transition',{'opacity-1-transition':!isColumnList}]">
-        <article v-if="!isColumnList">
+            <article v-if="!isColumnList">
                 <h2 class="d-none">
                     Result
                 </h2>
                 <section v-for="n in 30" :key="n" class="pt-3 pt-lg-4">
-                    <RecordsCardStack :record-status="n%2===0?'ready':'deprecated'" :key="n"></RecordsCardStack>
+                    <RecordsCardStack :record-status="n%2===0?'ready':'deprecated'" :recommended="n%3===0"
+                                      :key="n"></RecordsCardStack>
                 </section>
             </article>
         </div>
 
         <div :class="['opacity-0-transition',{'opacity-1-transition':isColumnList}]">
             <v-row v-show="isColumnList">
-                <RecordsCardColumn :record-status="n%2===0?'ready':'deprecated'" v-for="n in 30"
+                <RecordsCardColumn :record-status="n%2===0?'ready':'deprecated'" :recommended="n%3===0" v-for="n in 30"
                                    :key="n"></RecordsCardColumn>
             </v-row>
         </div>

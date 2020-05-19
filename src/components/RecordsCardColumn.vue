@@ -9,6 +9,7 @@
         >
             <!-- Title and Icon -->
             <v-row no-gutters class="full-width">
+                <Ribbon title="RECOMMENDED" v-if="recommended"></Ribbon>
                 <v-col cols="12" @mouseenter="allowClicking=true"
                        @mouseleave="allowClicking=false">
                     <div class=" d-flex flex-column align-center justify-center">
@@ -63,12 +64,14 @@
 
 <script>
     import CircleHolder from "./CircleHolder";
+    import Ribbon from "./Ribbon";
 
     export default {
         name: "RecordsCardColumn",
-        components: {CircleHolder},
+        components: {Ribbon, CircleHolder},
         props: {
             RecordStatus: null,
+            recommended: null,
         },
         data() {
             return {

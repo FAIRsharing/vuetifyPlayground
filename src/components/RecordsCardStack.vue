@@ -7,7 +7,7 @@
             :hover="allowClicking"
     >
         <v-row no-gutters class="full-width">
-            <div class="ribbon"><span>RECOMMENDED</span></div>
+            <Ribbon title="RECOMMENDED" v-if="recommended"></Ribbon>
             <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3" @mouseenter="allowClicking=true"
                    @mouseleave="allowClicking=false">
                 <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">
@@ -54,12 +54,14 @@
 
 <script>
     import CircleHolder from "./CircleHolder";
+    import Ribbon from "./Ribbon";
 
     export default {
         name: "RecordsCardStack",
-        components: {CircleHolder},
+        components: {Ribbon, CircleHolder},
         props: {
             RecordStatus: null,
+            recommended: null,
         },
         data() {
             return {
@@ -120,57 +122,4 @@
         opacity: 0;
     }
 
-    .ribbon {
-        position: absolute;
-        right: -5px;
-        top: -5px;
-        z-index: 1;
-        overflow: hidden;
-        width: 75px;
-        height: 75px;
-        text-align: right;
-    }
-
-    .ribbon span {
-        font-size: .54rem;
-        font-weight: bold;
-        color: #FFF;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 20px;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        width: 100px;
-        display: block;
-        background: #79A70A;
-        background: linear-gradient(#F70505 0%, #A70C0C 100%);
-        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-        position: absolute;
-        top: 19px;
-        right: -21px;
-    }
-
-    .ribbon span::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 100%;
-        z-index: -1;
-        border-left: 3px solid #A70C0C;
-        border-right: 3px solid transparent;
-        border-bottom: 3px solid transparent;
-        border-top: 3px solid #A70C0C;
-    }
-
-    .ribbon span::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 100%;
-        z-index: -1;
-        border-left: 3px solid transparent;
-        border-right: 3px solid #A70C0C;
-        border-bottom: 3px solid transparent;
-        border-top: 3px solid #A70C0C;
-    }
 </style>

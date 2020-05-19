@@ -50,7 +50,6 @@
             ></v-autocomplete>
         </v-expansion-panel-content>
     </v-expansion-panel>
-
 </template>
 
 <script>
