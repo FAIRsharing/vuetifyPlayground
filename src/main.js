@@ -13,7 +13,7 @@ import {applicationMixin} from "./mixins/applicationMixin";
 
 Vue.config.productionTip = false;
 // This is a global mixin, it is applied to every vue instance
-import "./styles/main2.scss"
+import "./styles/main.scss"
 
 Vue.mixin(applicationMixin);
 

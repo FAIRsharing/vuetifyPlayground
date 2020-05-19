@@ -59,7 +59,6 @@
             </p>
         </v-card>
     </v-col>
-
 </template>
 
 <script>

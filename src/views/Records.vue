@@ -24,22 +24,26 @@
                     </p>
                 </section>
             </div>
+
             <!-- Search Box -->
-            <v-text-field
-                    class="ma-2"
-                    solo-inverted
-                    single-line
-                    clearable
-                    v-model="searchTerm"
-                    :placeholder="`Search through all data`"
-            ></v-text-field>
-
-            <v-row no-gutters class="full-width"
-            >
-                <v-col cols="12">
-                </v-col>
-            </v-row>
-
+            <div class="d-flex flex-row align-center mt-1  mr-2 ml-2">
+                <v-text-field
+                        solo
+                        single-line
+                        clearable
+                        v-model="searchTerm"
+                        :placeholder="`Can't find what you'r looking for?! search through all data`"
+                ></v-text-field>
+                <v-btn color="primary" outlined height="52px" class="mt-1 ml-2">
+                    <v-icon>search</v-icon>
+                    <span>Search</span>
+                </v-btn>
+            </div>
+            <!--advanced Search button  -->
+            <div class="text-right">
+                <v-btn text small class="button-text-color" to="/advanced-search">Advanced</v-btn>
+            </div>
+            <!--  Content  -->
             <v-row no-gutters
             >
                 <v-col cols="12" lg="4" md="4" class="d-none d-md-flex mt-2 ml-2">
@@ -96,7 +100,7 @@
             onScroll: function (e) {
                 let _module = this;
                 this.offsetTop = e.target.scrollTop;
-                if (this.offsetTop > 105) {
+                if (this.offsetTop > 125) {
                     _module.stickToLeft = true;
                     _module.showHeader = false;
                 } else {
