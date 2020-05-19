@@ -11,22 +11,39 @@
                      id="scroll-target"
         >
             <!-- Title banner -->
-            <section
-                    id="banner"
-                    class="secondary"
+            <div>
+                <section
+                        id="banner"
+                        class="secondary"
+                >
+                    <h1 class="text-center white--text">
+                        {{ getTitle }}
+                    </h1>
+                    <p class="text-center white--text">
+                        {{ recordsSubTitles[getTitle] }}
+                    </p>
+                </section>
+            </div>
+            <!-- Search Box -->
+            <v-text-field
+                    class="ma-2"
+                    solo-inverted
+                    single-line
+                    clearable
+                    v-model="searchTerm"
+                    :placeholder="`Search through all data`"
+            ></v-text-field>
+
+            <v-row no-gutters class="full-width"
             >
-                <h1 class="text-center white--text">
-                    {{ getTitle }}
-                </h1>
-                <p class="text-center white--text">
-                    {{ recordsSubTitles[getTitle] }}
-                </p>
-            </section>
+                <v-col cols="12">
+                </v-col>
+            </v-row>
 
             <v-row no-gutters
             >
                 <v-col cols="12" lg="4" md="4" class="d-none d-md-flex mt-2 ml-2">
-                    <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'" />
+                    <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
                 </v-col>
                 <v-col class="mt-2">
                     <RightContentStackList
@@ -35,6 +52,7 @@
                     />
                 </v-col>
             </v-row>
+
         </v-container>
     </v-content>
 </template>
@@ -48,6 +66,7 @@
         name: "Records",
         components: {RightContentStackList, JumpTop, LeftPanel},
         data: () => ({
+            searchTerm: '',
             offsetTop: 0,
             stickToLeft: false,
             bodyOverflowActive: true,
@@ -120,6 +139,10 @@
         justify-content: center;
         flex-direction: column;
         padding: 1em;
+    }
+
+    .v-input {
+        height: 42px;
     }
 
 </style>
