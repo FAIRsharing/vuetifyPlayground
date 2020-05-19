@@ -191,15 +191,15 @@
                 this.panel = []
             },
             addParam: async function (subFilterName, subFilterObject, parentFilterName) {
-                // console.log('subFilterName', subFilterName);
-                // console.log('subFilterObject', subFilterObject);
-                // console.log('parentFilterName', parentFilterName)
-                // console.log('filterSelected', this.filterSelected);
+                console.log('subFilterName', subFilterName);
+                console.log('subFilterObject', subFilterObject);
+                console.log('parentFilterName', parentFilterName)
+                console.log('filterSelected', this.filterSelected);
                 let clickedObject = this.filters.find(item => item.filter === parentFilterName)
-                // console.log('clickedObject', clickedObject);
+                console.log('clickedObject', clickedObject);
                 let clickedIndex = clickedObject.subFilters.findIndex(item => item.subFilter === subFilterName);
-                // console.log('clickedIndex', clickedIndex);
-                // console.log(clickedObject.subFilters[clickedIndex]);
+                console.log('clickedIndex', clickedIndex);
+                console.log(clickedObject.subFilters[clickedIndex]);
                 clickedObject.subFilters[clickedIndex].active = !clickedObject.subFilters[clickedIndex].active;
 
                 // this.$forceUpdate();

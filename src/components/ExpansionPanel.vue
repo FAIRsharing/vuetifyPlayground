@@ -75,7 +75,7 @@
                         }
                     });
                     // output = _module.object.subFilters.find(item => item.subFilter.includes(_module.searchTerm));
-                    // console.log('output', output)
+                    console.log('output', output)
                     return output;
                 }
             },
