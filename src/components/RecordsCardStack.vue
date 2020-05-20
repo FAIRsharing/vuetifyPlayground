@@ -1,7 +1,7 @@
 <template>
     <!--Stack List-->
     <v-card
-            class="pa-2 d-flex  align-center flex-column"
+            class="pl-2 pr-2 pt-2 d-flex  align-center flex-column"
             outlined
             tile
             :hover="allowClicking"
@@ -49,22 +49,34 @@
         <p class="mt-2 description">
             {{description}}
         </p>
+
+        <!--  Associated Records      -->
+        <AssociatedRecordsStack :associated-records="associatedRecords"/>
+
     </v-card>
 </template>
 
 <script>
     import CircleHolder from "./CircleHolder";
     import Ribbon from "./Ribbon";
+    import AssociatedRecordsStack from "./AssociatedRecordsStack";
 
     export default {
         name: "RecordsCardStack",
-        components: {Ribbon, CircleHolder},
+        components: {AssociatedRecordsStack, Ribbon, CircleHolder},
         props: {
             RecordStatus: null,
             recommended: null,
         },
         data() {
             return {
+                associatedRecords: [{title: 'standards', amount: 10}, {title: 'databases', amount: 8}, {
+                    title: 'policies',
+                    amount: 2,
+                }, {
+                    title: 'collections',
+                    amount: 6,
+                }],
                 allowClicking: false,
                 buttons: [{title: 'SUBJECTS', active: false}, {title: 'DOMAINS', active: true}, {
                     title: 'TAXONOMIES',
@@ -111,7 +123,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .chips-container {
         height: 110px;
         overflow-x: hidden;
