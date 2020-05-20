@@ -46,8 +46,11 @@
             <!--  Content  -->
             <v-row no-gutters
             >
-                <v-col cols="12" lg="4" md="4" class="d-none d-md-flex mt-2 ml-2">
-                    <LeftPanel :class="stickToLeft?'left-panel-fixed':'left-panel-default'"/>
+                <v-col cols="12" lg="4" md="4" xl="3" class="d-none d-md-flex mt-2 ml-2">
+                    <LeftPanel
+                            :class="[responsiveClassObject]"/>
+                    <!--                    <div :class="['opacity-0-transition',{'opacity-1-transition':!isColumnList}]">-->
+
                 </v-col>
                 <v-col class="mt-2">
                     <RightContentStackList
@@ -56,7 +59,6 @@
                     />
                 </v-col>
             </v-row>
-
         </v-container>
     </v-content>
 </template>
@@ -114,6 +116,14 @@
         computed: {
             getTitle: function () {
                 return 'Standards';
+            },
+            responsiveClassObject: function () {
+                return {
+                    'left-panel-fixed-lg': this.stickToLeft && this.$vuetify.breakpoint.xlOnly,
+                    'left-panel-default-lg': !this.stickToLeft && this.$vuetify.breakpoint.xlOnly,
+                    'left-panel-default': !this.stickToLeft && !this.$vuetify.breakpoint.xlOnly,
+                    'left-panel-fixed': this.stickToLeft && !this.$vuetify.breakpoint.xlOnly
+                }
             }
         }
     }
@@ -129,6 +139,18 @@
     .left-panel-default {
         position: relative;
         width: 32vw;
+        height: 100%;
+    }
+
+    .left-panel-fixed-lg {
+        position: fixed;
+        top: 0;
+        width: 24vw;
+    }
+
+    .left-panel-default-lg {
+        position: relative;
+        width: 24vw;
         height: 100%;
     }
 
