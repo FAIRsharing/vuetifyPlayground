@@ -125,7 +125,7 @@
 
 <style scoped lang="scss">
     .chips-container {
-        height: 110px;
+        height: 90px;
         overflow-x: hidden;
         scroll-behavior: smooth;
     }

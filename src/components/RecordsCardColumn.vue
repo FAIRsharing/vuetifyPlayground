@@ -31,8 +31,8 @@
                 </v-col>
             </v-row>
             <!--Chips-->
-            <v-row no-gutters>
-                <v-col>
+            <v-row no-gutters class="chips-container-margin">
+                <v-col cols="12">
                     <section class="chips-container">
                         <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
                         <v-chip-group
@@ -121,6 +121,11 @@
 </script>
 
 <style scoped>
+    .chips-container-margin {
+        margin-right: 10%;
+        margin-left: 24%;
+    }
+
     .chips-container {
         height: 110px;
         overflow-x: hidden;
@@ -129,5 +134,9 @@
 
     .v-chip.v-chip--outlined.v-chip--active::before {
         opacity: 0;
+    }
+
+    .v-slide-group {
+        /*padding-left: 25%;*/
     }
 </style>
