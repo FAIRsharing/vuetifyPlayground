@@ -57,6 +57,8 @@
             <p class="ma-2 description text-justify">
                 {{description}}
             </p>
+            <!--  Associated Records      -->
+            <AssociatedRecordsStack :is-column="true" :associated-records="associatedRecords"/>
         </v-card>
     </v-col>
 </template>
@@ -64,10 +66,11 @@
 <script>
     import CircleHolder from "./CircleHolder";
     import Ribbon from "./Ribbon";
+    import AssociatedRecordsStack from "./AssociatedRecordsStack";
 
     export default {
         name: "RecordsCardColumn",
-        components: {Ribbon, CircleHolder},
+        components: {AssociatedRecordsStack, Ribbon, CircleHolder},
         props: {
             RecordStatus: null,
             recommended: null,
@@ -75,6 +78,13 @@
         data() {
             return {
                 allowClicking: false,
+                associatedRecords: [{title: 'standards', amount: 10}, {title: 'databases', amount: 8}, {
+                    title: 'policies',
+                    amount: 2,
+                }, {
+                    title: 'collections',
+                    amount: 6,
+                }],
                 buttons: [{title: 'SUBJECTS', active: false}, {title: 'DOMAINS', active: true}, {
                     title: 'TAXONOMIES',
                     active: false,
@@ -134,9 +144,5 @@
 
     .v-chip.v-chip--outlined.v-chip--active::before {
         opacity: 0;
-    }
-
-    .v-slide-group {
-        /*padding-left: 25%;*/
     }
 </style>
