@@ -162,14 +162,13 @@
 </template>
 
 <script>
-    import JumpTop from "../components/jumpToTop";
     import Ribbon from "../components/Ribbon";
     import CircleHolder from "../components/CircleHolder";
     import Footer from "../components/Footer";
 
     export default {
         name: "Record",
-        components: {Footer, CircleHolder, Ribbon, JumpTop},
+        components: {Footer, CircleHolder, Ribbon},
         data: () => {
             return {
                 showScrollToTopButton: false,
