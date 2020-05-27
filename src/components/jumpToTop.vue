@@ -23,19 +23,12 @@
         methods: {
             scrollToTop: function () {
                 let myDiv = document.getElementById(this.targetObject);
-                myDiv.scrollTo(top);
+                myDiv.scrollTo(0, 0);
             },
         }
     }
 </script>
 
 <style scoped>
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s;
-    }
 
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
 </style>

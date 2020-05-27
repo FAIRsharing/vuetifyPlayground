@@ -5,18 +5,20 @@
         <transition name="fade">
             <Header v-if="showHeader" v-on:setParentDrawerStatus="setDrawerStatus"></Header>
         </transition>
-        <Records v-on:toggleHeader="toggleHeaderHidden" v-on:changeOverFlow="changeOverflowStatus"/>
+        <!--        <Records v-on:toggleHeader="toggleHeaderHidden" v-on:changeOverFlow="changeOverflowStatus"/>-->
+        <Record/>
         <!--        <StaticPage />-->
     </v-app>
 </template>
 
 <script>
     import Header from "./components/Header";
-    import Records from "./views/Records";
+    // import Records from "./views/Records";
+    import Record from "./views/Record";
     // import StaticPage from "./views/StaticPage";
 
     export default {
-        components: {Records, Header},
+        components: {Record, Header},
         props: {
             source: String,
         },

@@ -101,16 +101,16 @@
         methods: {
             onScroll: function (e) {
                 let _module = this;
-                this.offsetTop = e.target.scrollTop;
-                if (this.offsetTop > 125) {
+                _module.offsetTop = e.target.scrollTop;
+                if (_module.offsetTop > 125) {
                     _module.stickToLeft = true;
                     _module.showHeader = false;
                 } else {
                     _module.stickToLeft = false;
                     _module.showHeader = true;
                 }
-                this.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
-                this.$emit('toggleHeader', _module.showHeader);
+                _module.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
+                _module.$emit('toggleHeader', _module.showHeader);
             },
         },
         computed: {
