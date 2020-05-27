@@ -3,13 +3,9 @@
         <h1 class="d-none">
             Content
         </h1>
-        <transition name="fade">
-            <jump-top v-if="showScrollToTopButton"/>
-        </transition>
-        <v-container fluid
-        >
+        <v-container fluid>
             <!--  Content  -->
-            <v-row no-gutters class=" "
+            <v-row no-gutters
             >
                 <v-col cols="12" lg="12" md="12" xl="12">
                     <v-card
@@ -159,6 +155,8 @@
                     </v-card>
                 </v-col>
             </v-row>
+            <!--  Footer  -->
+            <Footer></Footer>
         </v-container>
     </v-content>
 </template>
@@ -167,10 +165,11 @@
     import JumpTop from "../components/jumpToTop";
     import Ribbon from "../components/Ribbon";
     import CircleHolder from "../components/CircleHolder";
+    import Footer from "../components/Footer";
 
     export default {
         name: "Record",
-        components: {CircleHolder, Ribbon, JumpTop},
+        components: {Footer, CircleHolder, Ribbon, JumpTop},
         data: () => {
             return {
                 showScrollToTopButton: false,
