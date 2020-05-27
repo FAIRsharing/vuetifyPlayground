@@ -33,30 +33,130 @@
                             </v-col>
                         </v-row>
 
-                        <!-- Title and DOI -->
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                        <div>general info</div>
-                    </v-card>
+                        <!-- General Information -->
+                        <v-row no-gutters>
+                            <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                        style="width: 100%"
+                                >
+                                    <h4>GENERAL INFORMATION</h4>
+                                    <p>its some description about generation</p>
+                                    <i>some more info about general</i>
+                                </v-card>
+                            </v-col>
+                        </v-row>
 
+                        <v-row no-gutters>
+                            <!-- SUPPORT -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>SUPPORT</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- META INFO -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>META INFORMATION</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- GRANTS -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>GRANTS</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- ORGANIZATION -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>ORGANIZATION</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- LICENSES -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>LICENCES</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- MAINTAINERS -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>MAINTAINERS</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- ASSOCIATED RECORDS -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>ASSOCIATED RECORDS</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                            <!-- PUBLICATIONS -->
+                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <v-card
+                                        class="pa-4 mt-4 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4>PUBLICATIONS</h4>
+                                    <p>its some description</p>
+                                    <i>some more info</i>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                    </v-card>
                 </v-col>
             </v-row>
         </v-container>
