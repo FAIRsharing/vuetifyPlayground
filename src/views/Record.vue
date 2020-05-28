@@ -33,13 +33,12 @@
                         <v-row no-gutters>
                             <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
-                                        style="width: 100%"
                                 >
-                                    <h4>GENERAL INFORMATION</h4>
+                                    <h4 class="title-style">GENERAL INFO</h4>
                                     <p>its some description about generation</p>
                                     <i>some more info about general</i>
                                 </v-card>
@@ -50,12 +49,12 @@
                             <!-- SUPPORT -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>SUPPORT</h4>
+                                    <h4 class="title-style">SUPPORT</h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -330,7 +329,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     #banner {
         display: flex;
         justify-content: center;
@@ -342,5 +341,21 @@
         max-height: 100vh;
         scroll-behavior: smooth;
         padding: 0;
+    }
+
+    .title-style {
+        position: absolute;
+        top: -4px;
+        left: 45%;
+        /*
+        color: #909090;
+        background: linear-gradient(#bebebe,transparent);
+        */
+        color: white;
+        background: linear-gradient(#004d40, #00aa8e);
+        padding: 1px 10px 1px 10px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
     }
 </style>
