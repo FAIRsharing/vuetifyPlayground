@@ -46,7 +46,7 @@
                     class="mt-2"
             ></v-divider>
         </div>
-        <p class="mt-2 description">
+        <p class="mt-2 card-description">
             {{description}}
         </p>
 

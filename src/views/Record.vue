@@ -47,28 +47,25 @@
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>GENERAL
                                         INFO<span
                                                 class="triangle-bottomRight"></span></h4>
-                                    <article>
-                                        <section>
-                                            <!--H5 for seo only-->
-                                            <h5 class="d-none">General Information</h5>
-                                            <!--Abbreviation-->
-                                            <div class="d-flex">
-                                                <b class="mr-2">Abbreviation:</b>
-                                                <p>{{fairsharingRecord.abbreviation}}</p>
-                                            </div>
-                                            <!--Registry-->
-                                            <div class="d-flex">
-                                                <b class="mr-2">Registry:</b>
-                                                <p>{{fairsharingRecord.registry}}</p>
-                                            </div>
-                                            <!--Description-->
-                                            <div class="d-flex">
-                                                <b class="mr-2">Description:</b>
-                                                <p>{{fairsharingRecord.description}}</p>
-                                            </div>
-
-                                        </section>
-                                    </article>
+                                    <section>
+                                        <!--H5 for seo only-->
+                                        <h5 class="d-none">General Information</h5>
+                                        <!--Abbreviation-->
+                                        <div class="d-flex">
+                                            <b class="mr-2">Abbreviation:</b>
+                                            <p>{{fairsharingRecord.abbreviation}}</p>
+                                        </div>
+                                        <!--Registry-->
+                                        <div class="d-flex">
+                                            <b class="mr-2">Registry:</b>
+                                            <p>{{fairsharingRecord.registry}}</p>
+                                        </div>
+                                        <!--Description-->
+                                        <div class="d-flex">
+                                            <b class="mr-2">Description:</b>
+                                            <p>{{fairsharingRecord.description}}</p>
+                                        </div>git
+                                    </section>
                                 </v-card>
                             </v-col>
                         </v-row>

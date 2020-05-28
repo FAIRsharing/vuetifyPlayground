@@ -54,7 +54,7 @@
                         class="mt-2"
                 ></v-divider>
             </div>
-            <p class="ma-2 description text-justify">
+            <p class="ma-2 card-description text-justify">
                 {{description}}
             </p>
             <!--  Associated Records      -->
