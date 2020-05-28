@@ -25,7 +25,13 @@
                             </v-col>
                             <v-col cols="12" xs="12" sm="12" md="6" lg="4" xl="4"
                                    class="d-flex flex-row align-center">
-                                <h3>doi: <u>{{fairsharingRecord.doi}}</u></h3>
+                                <h3 class="mr-1">doi: </h3>
+                                <router-link text small :to="fairsharingRecord.doi"
+                                             @mouseenter.native="showLinkStyle=true"
+                                             @mouseleave.native="showLinkStyle=false"
+                                             :style="showLinkStyle?'text-decoration: underline':'text-decoration: none'">
+                                    {{fairsharingRecord.doi}}
+                                </router-link>
                             </v-col>
                         </v-row>
 
@@ -181,6 +187,7 @@
         components: {Footer, CircleHolder, Ribbon},
         data: () => {
             return {
+                showLinkStyle: false,
                 showScrollToTopButton: false,
                 fairsharingRecord: {
                     "registry": "standard",
