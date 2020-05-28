@@ -15,7 +15,7 @@
                             elevation="1"
                     >
                         <!-- Ribbon -->
-                        <Ribbon title="RECOMMENDED" v-if="true"></Ribbon>
+                        <Ribbon title="RECOMMENDED" v-if="fairsharingRecord.isRecommended"></Ribbon>
                         <!-- Title and DOI -->
                         <v-row no-gutters>
                             <v-col cols="12" xs="12" sm="12" md="6" lg="8" xl="8"
