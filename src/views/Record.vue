@@ -210,7 +210,7 @@
                     "domains": [{"label": "Reaction data"}, {"label": "Cell"}, {"label": "Enzyme"}, {"label": "Organ"}],
                     "subjects": [{"label": "Life Science"}, {"label": "Ontology and Terminology"}, {"label": "Enzymology"}],
                     "grants": [{"name": "R01 GM071872"}],
-                    "isRecommended": false,
+                    "isRecommended": true,
                     "legacyIds": ["bsg-000063", "bsg-s000063"],
                     "licences": [{"name": "License agreement for users of BRENDA"}],
                     "maintainers": [],
