@@ -38,7 +38,8 @@
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style">GENERAL INFO</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>GENERAL INFO<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description about generation</p>
                                     <i>some more info about general</i>
                                 </v-card>
@@ -54,7 +55,8 @@
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style">SUPPORT</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>SUPPORT<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -62,12 +64,13 @@
                             <!-- META INFO -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>META INFORMATION</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>META INFO<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -75,12 +78,13 @@
                             <!-- GRANTS -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>GRANTS</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>GRANTS<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -88,12 +92,13 @@
                             <!-- ORGANIZATION -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>ORGANIZATION</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>ORGANISATION<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -101,12 +106,14 @@
                             <!-- LICENSES -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-5 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>LICENCES</h4>
+
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>LICENCES<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -114,12 +121,13 @@
                             <!-- MAINTAINERS -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>MAINTAINERS</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>MAINTAINERS<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -127,12 +135,14 @@
                             <!-- ASSOCIATED RECORDS -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>ASSOCIATED RECORDS</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>ASSOCIATED
+                                        RECORDS<span
+                                                class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -140,12 +150,13 @@
                             <!-- PUBLICATIONS -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
                                 <v-card
-                                        class="pa-4 mt-4 d-flex flex-column"
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4>PUBLICATIONS</h4>
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>PUBLICATIONS<span
+                                            class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
@@ -345,17 +356,42 @@
 
     .title-style {
         position: absolute;
-        top: -4px;
-        left: 45%;
+        top: -8px;
+        left: 44%;
         /*
-        color: #909090;
-        background: linear-gradient(#bebebe,transparent);
+                        color: #909090;
+                        background: linear-gradient(#bebebe,transparent);
+                        border: #bebebe solid 1px;
         */
         color: white;
-        background: linear-gradient(#004d40, #00aa8e);
+        background: linear-gradient(#4f5f5d, #00aa8e);
+        background: -moz-linear-gradient(#4f5f5d, #00aa8e);
+        background: -webkit-linear-gradient(#4f5f5d, #00aa8e);
+        background: -o-linear-gradient(#4f5f5d, #00aa8e);
         padding: 1px 10px 1px 10px;
         border-radius: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
+
+        .triangle-bottomLeft {
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: -8px;
+            border-bottom: 8px solid #aaaaaa;
+            border-left: 8px solid transparent;
+        }
+
+        .triangle-bottomRight {
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            right: -8px;
+            border-bottom: 8px solid #aaaaaa;
+            border-right: 8px solid transparent;
+        }
+
     }
 </style>
