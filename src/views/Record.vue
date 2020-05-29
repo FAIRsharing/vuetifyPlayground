@@ -94,8 +94,25 @@
                                 >
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>SUPPORT<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <!--Contact-->
+                                    <v-card
+                                            class="pa-4 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="contact in fairsharingRecord.metadata.contacts"
+                                            :key="contact.contact_name"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-account</v-icon>
+                                            <b class="mr-2">Contact Name:</b>
+                                            <p class="ma-0">{{contact.contact_name}}</p>
+                                        </div>
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-email</v-icon>
+                                            <b class="mr-2">Contact Email:</b>
+                                            <p class="ma-0">{{contact.contact_email}}</p>
+                                        </div>
+                                    </v-card>
                                 </v-card>
                             </v-col>
                             <!-- META INFO -->
