@@ -48,10 +48,8 @@
                                         INFO<span
                                                 class="triangle-bottomRight"></span></h4>
                                     <section>
-                                        <!--H5 for seo only-->
-                                        <h5 class="d-none">General Information</h5>
                                         <!--Abbreviation-->
-                                        <div class="d-flex">
+                                        <div class="d-flex mt-2">
                                             <b class="mr-2">Abbreviation:</b>
                                             <p>{{fairsharingRecord.abbreviation}}</p>
                                         </div>
@@ -110,8 +108,56 @@
                                 >
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>META INFO<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <section>
+                                        <!--Taxonomies-->
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <b class="mr-2">Taxonomies:</b>
+                                            <v-chip
+                                                    v-for="item in fairsharingRecord.taxonomies"
+                                                    :key="item.label"
+                                                    class="mr-2 mb-2 "
+                                                    color="primary"
+                                                    label
+                                                    outlined
+                                                    text-color="primary"
+                                            >
+                                                <v-icon left>mdi-label</v-icon>
+                                                {{item.label}}
+                                            </v-chip>
+                                        </div>
+                                        <!--Domains-->
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <b class="mr-8">Domains:</b>
+                                            <v-chip
+                                                    v-for="item in fairsharingRecord.domains"
+                                                    :key="item.label"
+                                                    class="mr-2 mb-2"
+                                                    color="secondary"
+                                                    label
+                                                    outlined
+                                                    text-color="secondary"
+                                            >
+                                                <v-icon left>mdi-label</v-icon>
+                                                {{item.label}}
+                                            </v-chip>
+                                        </div>
+                                        <!--Subjects-->
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <b class="mr-8">Subjects:</b>
+                                            <v-chip
+                                                    v-for="item in fairsharingRecord.subjects"
+                                                    :key="item.label"
+                                                    class="mr-2 mb-2"
+                                                    color="accent"
+                                                    label
+                                                    outlined
+                                                    text-color="accent"
+                                            >
+                                                <v-icon left>mdi-label</v-icon>
+                                                {{item.label}}
+                                            </v-chip>
+                                        </div>
+                                    </section>
                                 </v-card>
                             </v-col>
                             <!-- GRANTS -->

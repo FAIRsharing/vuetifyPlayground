@@ -8,7 +8,7 @@ export default {
         // darken1: colors.purple.darken2,
     },
     secondary: '#004d40',
-    accent:colors.yellow.lighten2,
+    accent:'#800D10',
     // All keys will generate theme styles,
     // Here we add a custom `tertiary` color
     // Here we add a custom `tertiary` color
