@@ -37,7 +37,7 @@
 
                         <!-- General Information -->
                         <v-row no-gutters>
-                            <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
+                            <v-col>
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
@@ -105,40 +105,11 @@
                             </v-col>
                         </v-row>
 
-                        <v-row no-gutters>
-                            <!-- SUPPORT -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
-                                <v-card
-                                        class="pa-4 mt-5 d-flex flex-column"
-                                        outlined
-                                        tile
-                                        elevation="1"
-                                >
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>SUPPORT<span
-                                            class="triangle-bottomRight"></span></h4>
-                                    <!--Contact-->
-                                    <v-card
-                                            class="pa-4 mt-2 d-flex flex-column"
-                                            flat
-                                            outlined
-                                            v-for="contact in fairsharingRecord.metadata.contacts"
-                                            :key="contact.contact_name"
-                                    >
-                                        <div class="d-flex mt-2 flex-wrap">
-                                            <v-icon color="secondary" class="mr-2">mdi-account</v-icon>
-                                            <b class="mr-2">Contact Name:</b>
-                                            <p class="ma-0">{{contact.contact_name}}</p>
-                                        </div>
-                                        <div class="d-flex mt-2 flex-wrap">
-                                            <v-icon color="secondary" class="mr-2">mdi-email</v-icon>
-                                            <b class="mr-2">Contact Email:</b>
-                                            <p class="ma-0">{{contact.contact_email}}</p>
-                                        </div>
-                                    </v-card>
-                                </v-card>
-                            </v-col>
-                            <!-- META INFO -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                        <!-- Single Row -->
+                        <v-row>
+                            <!--Left Column-->
+                            <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
+                                <!-- META INFO -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
@@ -198,9 +169,36 @@
                                         </div>
                                     </section>
                                 </v-card>
-                            </v-col>
-                            <!-- GRANTS -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                                <!-- SUPPORT -->
+                                <v-card
+                                        class="pa-4 mt-5 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>SUPPORT<span
+                                            class="triangle-bottomRight"></span></h4>
+                                    <!--Contact-->
+                                    <v-card
+                                            class="pa-4 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="contact in fairsharingRecord.metadata.contacts"
+                                            :key="contact.contact_name"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-account</v-icon>
+                                            <b class="mr-2">Contact Name:</b>
+                                            <p class="ma-0">{{contact.contact_name}}</p>
+                                        </div>
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-email</v-icon>
+                                            <b class="mr-2">Contact Email:</b>
+                                            <p class="ma-0">{{contact.contact_email}}</p>
+                                        </div>
+                                    </v-card>
+                                </v-card>
+                                <!-- GRANTS -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
@@ -223,16 +221,15 @@
                                         </div>
                                     </v-card>
                                 </v-card>
-                            </v-col>
-                            <!-- ORGANISATION -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <!-- ORGANISATION -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>ORGANISATION<span
+                                    <h4 class="title-style"><span
+                                            class="triangle-bottomLeft"></span>ORGANISATION<span
                                             class="triangle-bottomRight"></span></h4>
                                     <v-card
                                             class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
@@ -249,10 +246,11 @@
                                     </v-card>
                                 </v-card>
                             </v-col>
-                            <!-- LICENSES -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                            <!--Right Column-->
+                            <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
+                                <!-- LICENSES -->
                                 <v-card
-                                        class="pa-5 mt-5 d-flex flex-column"
+                                        class="pa-5 mt-5 d-flex flex-column "
                                         outlined
                                         tile
                                         elevation="1"
@@ -263,23 +261,20 @@
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
-                            </v-col>
-                            <!-- MAINTAINERS -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <!-- MAINTAINERS -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>MAINTAINERS<span
+                                    <h4 class="title-style"><span
+                                            class="triangle-bottomLeft"></span>MAINTAINERS<span
                                             class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
-                            </v-col>
-                            <!-- ASSOCIATED RECORDS -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pr-md-2 pr-sm-0">
+                                <!-- ASSOCIATED RECORDS -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
@@ -292,22 +287,22 @@
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
-                            </v-col>
-                            <!-- PUBLICATIONS -->
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
+                                <!-- PUBLICATIONS -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>PUBLICATIONS<span
+                                    <h4 class="title-style"><span
+                                            class="triangle-bottomLeft"></span>PUBLICATIONS<span
                                             class="triangle-bottomRight"></span></h4>
                                     <p>its some description</p>
                                     <i>some more info</i>
                                 </v-card>
                             </v-col>
                         </v-row>
+
                     </v-card>
                 </v-col>
             </v-row>
