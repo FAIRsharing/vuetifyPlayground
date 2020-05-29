@@ -64,7 +64,22 @@
                                         <div class="d-flex">
                                             <b class="mr-2">Description:</b>
                                             <p>{{fairsharingRecord.description}}</p>
-                                        </div>git
+                                        </div>
+                                        <!--Developed Countries -->
+                                        <div class="d-flex flex-wrap">
+                                            <b class="mr-2">Countries developed this resource:</b>
+                                            <v-tooltip top v-for="n in 20" :key="n"
+                                            >
+                                                <template v-slot:activator="{ on }">
+                                                    <button v-on="on" class="mb-2 mr-2">
+                                                        <country-flag
+                                                                :country="n%2===0?'de':'it'" size='big'
+                                                        />
+                                                    </button>
+                                                </template>
+                                                <span class="white--text">{{n%2===0?'Germany':'Italy'}}</span>
+                                            </v-tooltip>
+                                        </div>
                                     </section>
                                 </v-card>
                             </v-col>
@@ -199,10 +214,11 @@
     import Ribbon from "../components/Ribbon";
     import CircleHolder from "../components/CircleHolder";
     import Footer from "../components/Footer";
+    import CountryFlag from 'vue-country-flag'
 
     export default {
         name: "Record",
-        components: {Footer, CircleHolder, Ribbon},
+        components: {Footer, CircleHolder, Ribbon, CountryFlag},
         data: () => {
             return {
                 showLinkStyle: false,
