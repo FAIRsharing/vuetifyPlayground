@@ -27,9 +27,9 @@
                                    class="d-flex flex-row align-center">
                                 <h3 class="mr-1">doi: </h3>
                                 <router-link text small :to="fairsharingRecord.doi"
-                                             @mouseenter.native="showLinkStyle=true"
-                                             @mouseleave.native="showLinkStyle=false"
-                                             :style="showLinkStyle?'text-decoration: underline':'text-decoration: none'">
+                                             @mouseenter.native="urlLinks[0].showLinkStyle=true"
+                                             @mouseleave.native="urlLinks[0].showLinkStyle=false"
+                                             :style="urlLinks[0].showLinkStyle?'text-decoration: underline':'text-decoration: none'">
                                     {{fairsharingRecord.doi}}
                                 </router-link>
                             </v-col>
@@ -53,6 +53,18 @@
                                             <b class="mr-2">Abbreviation:</b>
                                             <p>{{fairsharingRecord.abbreviation}}</p>
                                         </div>
+                                        <!--Type-->
+                                        <div class="d-flex">
+                                            <b class="mr-2">Type:</b>
+                                            <p>{{fairsharingRecord.type}}</p>
+                                        </div>
+                                        <!--Created At-->
+                                        <!--!! Attention need data model to be changed. must be sent by fairsharing Object like below!! -->
+                                        <!--fairsharingRecord.year_creation-->
+                                        <div class="d-flex">
+                                            <b class="mr-2">Created At:</b>
+                                            <p>{{fairsharingRecord.metadata.year_creation}}</p>
+                                        </div>
                                         <!--Registry-->
                                         <div class="d-flex">
                                             <b class="mr-2">Registry:</b>
@@ -62,6 +74,16 @@
                                         <div class="d-flex">
                                             <b class="mr-2">Description:</b>
                                             <p>{{fairsharingRecord.description}}</p>
+                                        </div>
+                                        <!--HomePage-->
+                                        <div class="d-flex">
+                                            <b class="mr-2 mb-4">Home Page:</b>
+                                            <router-link text small :to="fairsharingRecord.homepage"
+                                                         @mouseenter.native="urlLinks[1].showLinkStyle=true"
+                                                         @mouseleave.native="urlLinks[1].showLinkStyle=false"
+                                                         :style="urlLinks[1].showLinkStyle?'text-decoration: underline':'text-decoration: none'">
+                                                {{fairsharingRecord.homepage}}
+                                            </router-link>
                                         </div>
                                         <!--Developed Countries -->
                                         <div class="d-flex flex-wrap">
@@ -284,7 +306,7 @@
         components: {Footer, CircleHolder, Ribbon, CountryFlag},
         data: () => {
             return {
-                showLinkStyle: false,
+                urlLinks: [{showLinkStyle: false}, {showLinkStyle: false}],
                 showScrollToTopButton: false,
                 fairsharingRecord: {
                     "registry": "standard",
