@@ -224,7 +224,7 @@
                                     </v-card>
                                 </v-card>
                             </v-col>
-                            <!-- ORGANIZATION -->
+                            <!-- ORGANISATION -->
                             <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pl-md-2 pl-sm-0">
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
@@ -234,8 +234,19 @@
                                 >
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>ORGANISATION<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <v-card
+                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="organisation in fairsharingRecord.organisations"
+                                            :key="organisation.name"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-factory</v-icon>
+                                            <b class="mr-2">organisation:</b>
+                                            <p class="ma-0">{{organisation.name}}</p>
+                                        </div>
+                                    </v-card>
                                 </v-card>
                             </v-col>
                             <!-- LICENSES -->
