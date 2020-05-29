@@ -58,11 +58,11 @@
                                             <b class="mr-2">Type:</b>
                                             <p>{{fairsharingRecord.type}}</p>
                                         </div>
-                                        <!--Created At-->
+                                        <!--Year of Creation-->
                                         <!--!! Attention need data model to be changed. must be sent by fairsharing Object like below!! -->
                                         <!--fairsharingRecord.year_creation-->
                                         <div class="d-flex">
-                                            <b class="mr-2">Created At:</b>
+                                            <b class="mr-2">Year of Creation:</b>
                                             <p>{{fairsharingRecord.metadata.year_creation}}</p>
                                         </div>
                                         <!--Registry-->
@@ -209,8 +209,19 @@
                                 >
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>GRANTS<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <v-card
+                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="grant in fairsharingRecord.grants"
+                                            :key="grant.name"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-cash-multiple</v-icon>
+                                            <b class="mr-2">Grant:</b>
+                                            <p class="ma-0">{{grant.name}}</p>
+                                        </div>
+                                    </v-card>
                                 </v-card>
                             </v-col>
                             <!-- ORGANIZATION -->
@@ -335,7 +346,7 @@
                     "taxonomies": [{"label": "All"}],
                     "domains": [{"label": "Reaction data"}, {"label": "Cell"}, {"label": "Enzyme"}, {"label": "Organ"}],
                     "subjects": [{"label": "Life Science"}, {"label": "Ontology and Terminology"}, {"label": "Enzymology"}],
-                    "grants": [{"name": "R01 GM071872"}],
+                    "grants": [{"name": "R01 GM071872"}, {"name": "AA b21221"}, {"name": "GF GAA1872"}],
                     "isRecommended": true,
                     "legacyIds": ["bsg-000063", "bsg-s000063"],
                     "licences": [{"name": "License agreement for users of BRENDA"}],
