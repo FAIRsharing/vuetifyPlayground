@@ -52,7 +52,7 @@
                                         <!--Type-->
                                         <div class="d-flex">
                                             <b class="mr-2">Type:</b>
-                                            <p>{{fairsharingRecord.type | capitalize}}</p>
+                                            <p>{{fairsharingRecord.type | capitalize | cleanString}}</p>
                                         </div>
                                         <!--Year of Creation-->
                                         <!--!! Attention need data model to be changed. must be sent by fairsharing Object like below!! -->
@@ -274,24 +274,27 @@
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style"><span
-                                            class="triangle-bottomLeft"></span>MAINTAINERS<span
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>MAINTAINERS<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
-                                </v-card>
-                                <!-- ASSOCIATED RECORDS -->
-                                <v-card
-                                        class="pa-4 mt-5 d-flex flex-column"
-                                        outlined
-                                        tile
-                                        elevation="1"
-                                >
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>ASSOCIATED
-                                        RECORDS<span
-                                                class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <!--Contact-->
+                                    <v-card
+                                            class="pa-4 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="maintainer in fairsharingRecord.maintainers"
+                                            :key="maintainer.contact_name"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-account-box-outline</v-icon>
+                                            <b class="mr-2">ID:</b>
+                                            <p class="ma-0">{{maintainer.id}}</p>
+                                        </div>
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-account-circle</v-icon>
+                                            <b class="mr-2">User Name:</b>
+                                            <p class="ma-0">{{maintainer.username}}</p>
+                                        </div>
+                                    </v-card>
                                 </v-card>
                                 <!-- PUBLICATIONS -->
                                 <v-card
@@ -300,11 +303,21 @@
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style"><span
-                                            class="triangle-bottomLeft"></span>PUBLICATIONS<span
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>PUBLICATIONS<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <v-card
+                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="publication in fairsharingRecord.publications"
+                                            :key="publication.title"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-book-open</v-icon>
+                                            <b class="mr-2">publication:</b>
+                                            <p class="ma-0">{{publication.title}}</p>
+                                        </div>
+                                    </v-card>
                                 </v-card>
                             </v-col>
                         </v-row>
@@ -330,7 +343,14 @@
         filters: {
             capitalize: function (value) {
                 return value.charAt(0).toUpperCase() + value.slice(1)
+            },
+            cleanString: function (string) {
+                if (typeof string === "string") {
+                    return string.replace(/_/g, " ");
+                }
+                return string;
             }
+
         },
         data: () => {
             return {
