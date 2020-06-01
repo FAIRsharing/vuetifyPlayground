@@ -246,16 +246,26 @@
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
                                 <!-- LICENSES -->
                                 <v-card
-                                        class="pa-5 mt-5 d-flex flex-column "
+                                        class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>LICENCES<span
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>LICENSES<span
                                             class="triangle-bottomRight"></span></h4>
-                                    <p>its some description</p>
-                                    <i>some more info</i>
+                                    <v-card
+                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            flat
+                                            outlined
+                                            v-for="licence in fairsharingRecord.licences"
+                                            :key="licence.name"
+                                    >
+                                        <div class="d-flex mt-2 flex-wrap">
+                                            <v-icon color="secondary" class="mr-2">mdi-certificate</v-icon>
+                                            <b class="mr-2">Licence:</b>
+                                            <p class="ma-0">{{licence.name}}</p>
+                                        </div>
+                                    </v-card>
                                 </v-card>
                                 <!-- MAINTAINERS -->
                                 <v-card
