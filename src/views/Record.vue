@@ -531,7 +531,6 @@
     .title-style {
         position: absolute;
         top: -8px;
-        left: 44%;
         /*
                         color: #909090;
                         background: linear-gradient(#bebebe,transparent);
