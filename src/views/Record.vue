@@ -22,6 +22,7 @@
                                    class="d-flex flex-row align-center">
                                 <circle-holder status="ready" class="mr-8"/>
                                 <h3>BRENDA tissue / enzyme source</h3>
+                                <b class="ml-2">({{fairsharingRecord.abbreviation}})</b>
                             </v-col>
                             <v-col cols="12" xs="12" sm="12" md="6" lg="4" xl="4"
                                    class="d-flex flex-row align-center">
@@ -48,15 +49,10 @@
                                         INFO<span
                                                 class="triangle-bottomRight"></span></h4>
                                     <section>
-                                        <!--Abbreviation-->
-                                        <div class="d-flex mt-2">
-                                            <b class="mr-2">Abbreviation:</b>
-                                            <p>{{fairsharingRecord.abbreviation}}</p>
-                                        </div>
                                         <!--Type-->
                                         <div class="d-flex">
                                             <b class="mr-2">Type:</b>
-                                            <p>{{fairsharingRecord.type}}</p>
+                                            <p>{{fairsharingRecord.type | capitalize}}</p>
                                         </div>
                                         <!--Year of Creation-->
                                         <!--!! Attention need data model to be changed. must be sent by fairsharing Object like below!! -->
@@ -68,12 +64,12 @@
                                         <!--Registry-->
                                         <div class="d-flex">
                                             <b class="mr-2">Registry:</b>
-                                            <p>{{fairsharingRecord.registry}}</p>
+                                            <p>{{fairsharingRecord.registry | capitalize}}</p>
                                         </div>
                                         <!--Description-->
                                         <div class="d-flex">
                                             <b class="mr-2">Description:</b>
-                                            <p>{{fairsharingRecord.description}}</p>
+                                            <p>{{fairsharingRecord.description | capitalize}}</p>
                                         </div>
                                         <!--HomePage-->
                                         <div class="d-flex">
@@ -109,14 +105,14 @@
                         <v-row>
                             <!--Left Column-->
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
-                                <!-- META INFO -->
+                                <!-- KEYWORDS -->
                                 <v-card
                                         class="pa-4 mt-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
                                 >
-                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>META INFO<span
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>KEYWORDS<span
                                             class="triangle-bottomRight"></span></h4>
                                     <section>
                                         <!--Taxonomies-->
@@ -321,6 +317,11 @@
     export default {
         name: "Record",
         components: {Footer, CircleHolder, Ribbon, CountryFlag},
+        filters: {
+            capitalize: function (value) {
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        },
         data: () => {
             return {
                 urlLinks: [{showLinkStyle: false}, {showLinkStyle: false}],
@@ -355,8 +356,8 @@
                     "grants": [{"name": "R01 GM071872"}, {"name": "AA b21221"}, {"name": "GF GAA1872"}],
                     "isRecommended": true,
                     "legacyIds": ["bsg-000063", "bsg-s000063"],
-                    "licences": [{"name": "License agreement for users of BRENDA"}],
-                    "maintainers": [],
+                    "licences": [{"name": "ORCID MIT-Style License"}, {"name": "The MIT License (MIT)"}],
+                    "maintainers": [{"username": "ORCID", "id": 2267}],
                     "organisations": [{"name": "The Federal Ministry of Education and Research (BMBF)"}, {"name": "European Union, Free European Life-Science Information and Computational Services (FELICS)"}, {"name": "European Union, Serving Life-science Information for the Next Generation (SLING)"}, {"name": "BRENDA Administrators"}, {"name": "Ministry of Science and Culture of Lower Saxony, Hannover, Germany"}, {"name": "National Institutes of Health (NIH), Bethesda, MD, USA"}],
                     "publications": [{"title": "The BRENDA Tissue Ontology (BTO): the first all-integrating ontology of all organisms for enzyme sources."}, {"title": "BRENDA in 2019: a European ELIXIR core data resource."}, {"title": "BRENDA, the enzyme database: updates and major new developments."}, {"title": "BRENDA in 2015: exciting developments in its 25th year of existence."}, {"title": "BRENDA in 2013: integrated reactions, kinetic data, enzyme function data, improved disease classification: new options and contents in BRENDA."}],
                     "recordAssociations": [{
