@@ -14,28 +14,6 @@
                             tile
                             elevation="1"
                     >
-                        <!-- Ribbon -->
-                        <Ribbon title="RECOMMENDED" v-if="fairsharingRecord.isRecommended"></Ribbon>
-                        <!-- Title and DOI -->
-                        <v-row no-gutters>
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="8" xl="8"
-                                   class="d-flex flex-row align-center">
-                                <circle-holder status="ready" class="mr-8"/>
-                                <h3>BRENDA tissue / enzyme source</h3>
-                                <b class="ml-2">({{fairsharingRecord.abbreviation}})</b>
-                            </v-col>
-                            <v-col cols="12" xs="12" sm="12" md="6" lg="4" xl="4"
-                                   class="d-flex flex-row align-center">
-                                <h3 class="mr-1">doi: </h3>
-                                <router-link text small :to="fairsharingRecord.doi"
-                                             @mouseenter.native="urlLinks[0].showLinkStyle=true"
-                                             @mouseleave.native="urlLinks[0].showLinkStyle=false"
-                                             :style="urlLinks[0].showLinkStyle?'text-decoration: underline':'text-decoration: none'">
-                                    {{fairsharingRecord.doi}}
-                                </router-link>
-                            </v-col>
-                        </v-row>
-
                         <!-- General Information -->
                         <v-row no-gutters>
                             <v-col>
@@ -48,6 +26,35 @@
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>GENERAL
                                         INFO<span
                                                 class="triangle-bottomRight"></span></h4>
+
+                                    <!-- Ribbon -->
+                                    <Ribbon title="RECOMMENDED" v-if="fairsharingRecord.isRecommended"></Ribbon>
+                                    <!-- Title and DOI -->
+                                    <v-row no-gutters class="mb-2">
+                                        <v-col cols="4" sm="2" md="2" lg="1" xl="1"
+                                               class="d-flex flex-row align-center mt-4 ">
+                                            <circle-holder status="ready"/>
+                                        </v-col>
+                                        <v-col class="d-flex flex-column justify-center" cols="12" sm="10" md="10"
+                                               lg="11" xl="11">
+                                            <div class="d-flex flex-column mt-2  ml-sm-6 ml-lg-8">
+                                                <div class="d-flex flex-row mb-2">
+                                                    <h3>BRENDA tissue / enzyme source</h3>
+                                                    <b class="ml-2">({{fairsharingRecord.abbreviation}})</b>
+                                                </div>
+                                                <div class="d-flex align-center">
+                                                    <h3 class="mr-1">doi: </h3>
+                                                    <router-link text small :to="fairsharingRecord.doi"
+                                                                 @mouseenter.native="urlLinks[0].showLinkStyle=true"
+                                                                 @mouseleave.native="urlLinks[0].showLinkStyle=false"
+                                                                 :style="urlLinks[0].showLinkStyle?'text-decoration: underline':'text-decoration: none'">
+                                                        {{fairsharingRecord.doi}}
+                                                    </router-link>
+                                                </div>
+                                            </div>
+                                        </v-col>
+                                    </v-row>
+
                                     <section>
                                         <!--Type-->
                                         <div class="d-flex">
