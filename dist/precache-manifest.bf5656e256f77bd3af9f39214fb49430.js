@@ -1,11 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e30c161a5b356edd3f9e",
-    "url": "css/app.f365b884.css"
+    "revision": "612ce5ffe1196247dcce",
+    "url": "css/about.c4114c36.css"
   },
   {
-    "revision": "d31a279e2c8b1baefc34",
-    "url": "css/chunk-vendors.0b45e7c1.css"
+    "revision": "726ab8d76245cf98797d",
+    "url": "css/app.edaf1944.css"
+  },
+  {
+    "revision": "31e44fe7b87792a9616b",
+    "url": "css/chunk-vendors.725cb867.css"
   },
   {
     "revision": "0509ab09c1b0d2200a4135803c91d6ce",
@@ -44,28 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/fairsharing-logo.c8194b18.svg"
   },
   {
-    "revision": "07d1e22e8cddd99a53037dc510221b7b",
-    "url": "img/logo.07d1e22e.svg"
-  },
-  {
-    "revision": "82b9c7a5a3f405032b1db71a25f67021",
-    "url": "img/logo.82b9c7a5.png"
-  },
-  {
-    "revision": "3a1144f7a544559ac1ccdb64335f8005",
+    "revision": "d39ab98efd48a94e622063c027cb7ba6",
     "url": "index.html"
   },
   {
-    "revision": "007e46ca2b47c19ffecf",
-    "url": "js/about.7c4c14e2.js"
+    "revision": "612ce5ffe1196247dcce",
+    "url": "js/about.44a5e611.js"
   },
   {
-    "revision": "e30c161a5b356edd3f9e",
-    "url": "js/app.2e5d7d6d.js"
+    "revision": "726ab8d76245cf98797d",
+    "url": "js/app.0cb5e976.js"
   },
   {
-    "revision": "d31a279e2c8b1baefc34",
-    "url": "js/chunk-vendors.f0af2286.js"
+    "revision": "31e44fe7b87792a9616b",
+    "url": "js/chunk-vendors.0ef31ace.js"
   },
   {
     "revision": "65a26a893471a81549361a477c2fd4af",
