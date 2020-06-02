@@ -1,15 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "612ce5ffe1196247dcce",
-    "url": "css/about.c4114c36.css"
-  },
-  {
-    "revision": "726ab8d76245cf98797d",
+    "revision": "244ed286fa92c52e9305",
     "url": "css/app.edaf1944.css"
   },
   {
     "revision": "31e44fe7b87792a9616b",
     "url": "css/chunk-vendors.725cb867.css"
+  },
+  {
+    "revision": "34ee56fce02c0ac88764",
+    "url": "css/record.219fdb6d.css"
+  },
+  {
+    "revision": "1bc45ffaa0240622accd",
+    "url": "css/records.b7e42e9b.css"
+  },
+  {
+    "revision": "9438d9a328a4c7c517f0",
+    "url": "css/record~records.0ef5453c.css"
   },
   {
     "revision": "0509ab09c1b0d2200a4135803c91d6ce",
@@ -48,20 +56,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/fairsharing-logo.c8194b18.svg"
   },
   {
-    "revision": "d39ab98efd48a94e622063c027cb7ba6",
+    "revision": "815dc86ced6f36de0d4216b14ea0ff66",
     "url": "index.html"
   },
   {
-    "revision": "612ce5ffe1196247dcce",
-    "url": "js/about.44a5e611.js"
+    "revision": "007e46ca2b47c19ffecf",
+    "url": "js/about.7c4c14e2.js"
   },
   {
-    "revision": "726ab8d76245cf98797d",
-    "url": "js/app.0cb5e976.js"
+    "revision": "244ed286fa92c52e9305",
+    "url": "js/app.7cf94bda.js"
   },
   {
     "revision": "31e44fe7b87792a9616b",
     "url": "js/chunk-vendors.0ef31ace.js"
+  },
+  {
+    "revision": "34ee56fce02c0ac88764",
+    "url": "js/record.c2db1029.js"
+  },
+  {
+    "revision": "1bc45ffaa0240622accd",
+    "url": "js/records.53fad0d9.js"
+  },
+  {
+    "revision": "9438d9a328a4c7c517f0",
+    "url": "js/record~records.629c7e96.js"
   },
   {
     "revision": "65a26a893471a81549361a477c2fd4af",
