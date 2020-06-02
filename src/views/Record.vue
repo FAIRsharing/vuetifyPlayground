@@ -71,7 +71,7 @@
                                             <p>{{fairsharingRecord.registry | capitalize}}</p>
                                         </div>
                                         <!--Description-->
-                                        <div class="d-flex">
+                                        <div class="d-flex align-center">
                                             <b class="mr-2">Description:</b>
                                             <p>{{fairsharingRecord.description | capitalize}}</p>
                                         </div>
@@ -361,7 +361,7 @@
                     "status": "ready",
                     "name": "BRENDA tissue / enzyme source",
                     "abbreviation": "BTO",
-                    "description": "A structured controlled vocabulary for the source of an enzyme. It comprises terms for tissues, cell lines, cell types and cell cultures from uni- and multicellular organisms.",
+                    "description": "A structured controlled vocabulary for the source of an enzyme.A structured controlled vocabulary for the source of an enzyme.A structured controlled vocabulary for the source of an enzyme.A structured controlled vocabulary for the source of an enzyme.A structured controlled vocabulary for the source of an enzyme. It comprises terms for tissues, cell lines, cell types and cell cultures from uni- and multicellular organisms.",
                     "homepage": "http://www.brenda-enzymes.info",
                     "countries": [{"name": "Germany"}],
                     "metadata": {

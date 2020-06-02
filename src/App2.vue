@@ -1,11 +1,11 @@
 <template>
     <v-app id="app">
-        <v-navigation-drawer app bottom v-model="showDrawerLeft" v-if="$vuetify.breakpoint.smAndDown">
+        <v-navigation-drawer app left width="70%" v-model="showDrawerLeft" v-if="$vuetify.breakpoint.smAndDown">
         </v-navigation-drawer>
         <transition name="fade">
-            <Header v-if="showHeader" v-on:setParentDrawerStatus="setDrawerStatus"></Header>
+            <Header v-if="showHeader" v-on:setParentDrawerStatus="toggleDrawer"></Header>
         </transition>
-        <router-view v-on:toggleHeader="toggleHeaderHidden"/>
+        <router-view/>
     </v-app>
 </template>
 
@@ -21,7 +21,6 @@
             showHeader: true,
             showDrawerLeft: false,
             hideOverflow: 'overflow-hidden'
-
         }),
         created() {
             // this.$vuetify.theme.dark = true;
@@ -32,25 +31,30 @@
             // console.log( this.$vuetify.breakpoint.width + ' '+this.$vuetify.breakpoint.height);
         },
         methods: {
-            setDrawerStatus: function (drawerStatus) {
-                this.showDrawerLeft = drawerStatus;
-            },
-            toggleHeaderHidden: function (headerState) {
-                this.showHeader = headerState;
-            },
             toggleOverFlow: function (status) {
                 let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
                 status ? root.setAttribute('class', this.hideOverflow) : root.removeAttribute('class');
-            }
-        },
-        computed: {
-            bodyOverFlow: function () {
-                return this.$store.state.utils.bodyOverflowState;
+            },
+            toggleDrawer: function (status) {
+                this.showDrawerLeft = status;
+            },
+            toggleHeader: function (status) {
+                this.showHeader = status;
             },
         },
+        computed: {
+            watcherOnUIGeneralStatus: function () {
+                return this.$store.state.utils.UIGeneralStatus;
+            }
+        },
         watch: {
-            bodyOverFlow: function () {
-                this.toggleOverFlow(this.bodyOverFlow);
+            watcherOnUIGeneralStatus: {
+                handler(UIGeneralStatus) {
+                    this.toggleOverFlow(UIGeneralStatus.bodyOverflowState);
+                    this.toggleDrawer(UIGeneralStatus.drawerVisibilityState);
+                    this.toggleHeader(UIGeneralStatus.headerVisibilityState);
+                },
+                deep: true
             }
         },
     }

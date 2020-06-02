@@ -93,15 +93,22 @@
                     "international funding agencies, regulators and journals.",
                 Search: "Search the FAIRsharing records using advanced filtering"
             },
-
         }),
         created() {
             // change the overflow to have Records behavior scroll
-            this.$store.dispatch("utils/toggleOverflowAction", true);
+            this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                bodyOverflowState: true,
+                drawerVisibilityState: false,
+                headerVisibilityState: true,
+            });
         },
         destroyed() {
-            // change the overflow to have normal behavior of main scroll
-            this.$store.dispatch("utils/toggleOverflowAction", false);
+            // change the overflow to have normal behavior of main scroll and having header
+            this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                bodyOverflowState: false,
+                drawerVisibilityState: false,
+                headerVisibilityState: true,
+            });
         },
         methods: {
             onScroll: function (e) {
@@ -109,13 +116,18 @@
                 _module.offsetTop = e.target.scrollTop;
                 if (_module.offsetTop > 125) {
                     _module.stickToLeft = true;
-                    _module.showHeader = false;
+                    this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                        bodyOverflowState: true,
+                        headerVisibilityState: false,
+                    });
                 } else {
                     _module.stickToLeft = false;
-                    _module.showHeader = true;
+                    this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                        bodyOverflowState: true,
+                        headerVisibilityState: true,
+                    });
                 }
                 _module.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
-                _module.$emit('toggleHeader', _module.showHeader);
             }
         },
         computed: {
