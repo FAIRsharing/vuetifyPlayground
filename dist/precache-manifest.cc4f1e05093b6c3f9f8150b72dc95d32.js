@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "255cf45d77309c72ac74",
+    "revision": "95b6a6b1798efce707f5",
     "url": "css/app.b42de6ba.css"
   },
   {
@@ -44,12 +44,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/fairsharing-logo.c8194b18.svg"
   },
   {
-    "revision": "837d1a937a7f40951daf91a0a6e38648",
+    "revision": "6620b881d261c4f06776e303f81b1a88",
     "url": "index.html"
   },
   {
-    "revision": "255cf45d77309c72ac74",
-    "url": "js/app.0fcc6bcc.js"
+    "revision": "95b6a6b1798efce707f5",
+    "url": "js/app.2a7396fa.js"
   },
   {
     "revision": "d2636dcc486ae0646d17",
