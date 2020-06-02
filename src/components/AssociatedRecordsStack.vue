@@ -24,7 +24,7 @@
         name: "AssociatedRecordsStack",
         props: {
             associatedRecords: {
-                type: Object,
+                type: Array,
                 default: null,
             },
             isColumn: {

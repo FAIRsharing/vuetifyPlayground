@@ -9,7 +9,7 @@
         <v-row no-gutters class="full-width">
             <Ribbon title="RECOMMENDED" v-if="recommended"></Ribbon>
             <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3" @mouseenter="allowClicking=true"
-                   @mouseleave="allowClicking=false">
+                   @mouseleave="allowClicking=false" @click="gotoRecordPage">
                 <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">
                     <circle-holder :status="RecordStatus" class="mr-8"/>
                     <h3 class="max-height " style="width: 60%"><u>Record title example</u></h3>
@@ -26,7 +26,7 @@
             </v-col>
             <v-col sm="8" md="9" lg="9" xs="12" xl="7">
                 <section class="chips-container ">
-                    <h5 class="d-none">Choose Subject , Domain , Taxonomy </h5>
+                    <h5 class="d-none">Choose Subject , Domain , Taxonomy</h5>
                     <v-chip-group
                             column
                     >
@@ -105,6 +105,9 @@
             }
         },
         methods: {
+            gotoRecordPage: function () {
+                this.$router.push({path: '/record'});
+            },
             changeActiveItem: function (itemIndex) {
                 this.buttons.map(item => item.active = false);
                 this.buttons[itemIndex].active = true;

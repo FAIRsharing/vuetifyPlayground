@@ -5,20 +5,15 @@
         <transition name="fade">
             <Header v-if="showHeader" v-on:setParentDrawerStatus="setDrawerStatus"></Header>
         </transition>
-        <!--        <Records v-on:toggleHeader="toggleHeaderHidden" v-on:changeOverFlow="changeOverflowStatus"/>-->
-        <Record/>
-        <!--        <StaticPage />-->
+        <router-view v-on:toggleHeader="toggleHeaderHidden"/>
     </v-app>
 </template>
 
 <script>
     import Header from "./components/Header";
-    // import Records from "./views/Records";
-    import Record from "./views/Record";
-    // import StaticPage from "./views/StaticPage";
 
     export default {
-        components: {Record, Header},
+        components: {Header},
         props: {
             source: String,
         },
@@ -26,6 +21,7 @@
             showHeader: true,
             showDrawerLeft: false,
             hideOverflow: 'overflow-hidden'
+
         }),
         created() {
             // this.$vuetify.theme.dark = true;
@@ -42,11 +38,21 @@
             toggleHeaderHidden: function (headerState) {
                 this.showHeader = headerState;
             },
-            changeOverflowStatus: function (status) {
+            toggleOverFlow: function (status) {
                 let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
                 status ? root.setAttribute('class', this.hideOverflow) : root.removeAttribute('class');
+            }
+        },
+        computed: {
+            bodyOverFlow: function () {
+                return this.$store.state.utils.bodyOverflowState;
             },
-        }
+        },
+        watch: {
+            bodyOverFlow: function () {
+                this.toggleOverFlow(this.bodyOverFlow);
+            }
+        },
     }
 </script>
 

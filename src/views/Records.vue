@@ -96,7 +96,12 @@
 
         }),
         created() {
-            this.$emit('changeOverFlow', true);
+            // change the overflow to have Records behavior scroll
+            this.$store.dispatch("utils/toggleOverflowAction", true);
+        },
+        destroyed() {
+            // change the overflow to have normal behavior of main scroll
+            this.$store.dispatch("utils/toggleOverflowAction", false);
         },
         methods: {
             onScroll: function (e) {
@@ -111,7 +116,7 @@
                 }
                 _module.offsetTop > 500 ? _module.showScrollToTopButton = true : _module.showScrollToTopButton = false;
                 _module.$emit('toggleHeader', _module.showHeader);
-            },
+            }
         },
         computed: {
             getTitle: function () {

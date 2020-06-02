@@ -11,7 +11,7 @@
             <v-row no-gutters class="full-width">
                 <Ribbon title="RECOMMENDED" v-if="recommended"></Ribbon>
                 <v-col cols="12" @mouseenter="allowClicking=true"
-                       @mouseleave="allowClicking=false">
+                       @mouseleave="allowClicking=false" @click="gotoRecordPage">
                     <div class=" d-flex flex-column align-center justify-center">
                         <circle-holder :status="RecordStatus"/>
                         <h3 class="max-height "><u>Record title example</u></h3>
@@ -125,6 +125,9 @@
                         item.active = !item.active;
                     }
                 });
+            },
+            gotoRecordPage: function () {
+                this.$router.push({path: '/record'});
             },
         }
     }

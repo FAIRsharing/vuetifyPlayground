@@ -38,16 +38,13 @@
                                         <v-col class="d-flex flex-column justify-center" cols="12" sm="10" md="10"
                                                lg="11" xl="11">
                                             <div class="d-flex flex-column mt-2  ml-sm-6 ml-lg-8">
-                                                <div class="d-flex flex-row mb-2">
+                                                <div class="d-flex flex-row mb-2 align-center">
                                                     <h3>BRENDA tissue / enzyme source</h3>
                                                     <b class="ml-2">({{fairsharingRecord.abbreviation}})</b>
                                                 </div>
                                                 <div class="d-flex align-center">
                                                     <h3 class="mr-1">doi: </h3>
-                                                    <router-link text small :to="fairsharingRecord.doi"
-                                                                 @mouseenter.native="urlLinks[0].showLinkStyle=true"
-                                                                 @mouseleave.native="urlLinks[0].showLinkStyle=false"
-                                                                 :style="urlLinks[0].showLinkStyle?'text-decoration: underline':'text-decoration: none'">
+                                                    <router-link :to="fairsharingRecord.doi">
                                                         {{fairsharingRecord.doi}}
                                                     </router-link>
                                                 </div>
@@ -81,10 +78,7 @@
                                         <!--HomePage-->
                                         <div class="d-flex">
                                             <b class="mr-2 mb-4">Home Page:</b>
-                                            <router-link text small :to="fairsharingRecord.homepage"
-                                                         @mouseenter.native="urlLinks[1].showLinkStyle=true"
-                                                         @mouseleave.native="urlLinks[1].showLinkStyle=false"
-                                                         :style="urlLinks[1].showLinkStyle?'text-decoration: underline':'text-decoration: none'">
+                                            <router-link :to="fairsharingRecord.homepage">
                                                 {{fairsharingRecord.homepage}}
                                             </router-link>
                                         </div>
@@ -94,7 +88,7 @@
                                             <v-tooltip top v-for="n in 20" :key="n"
                                             >
                                                 <template v-slot:activator="{ on }">
-                                                    <button v-on="on" class="mb-2 mr-2">
+                                                    <button v-on="on" class="mb-2 flag-mr">
                                                         <country-flag
                                                                 :country="n%2===0?'de':'it'" size='big'
                                                         />
@@ -123,7 +117,7 @@
                                             class="triangle-bottomRight"></span></h4>
                                     <section>
                                         <!--Taxonomies-->
-                                        <div class="d-flex mt-2 flex-wrap">
+                                        <div class="d-flex mt-4 flex-wrap">
                                             <b class="mr-2">Taxonomies:</b>
                                             <v-chip
                                                     v-for="item in fairsharingRecord.taxonomies"
@@ -183,10 +177,11 @@
                                             class="triangle-bottomRight"></span></h4>
                                     <!--Contact-->
                                     <v-card
-                                            class="pa-4 mt-2 d-flex flex-column"
+                                            class="pa-4 d-flex flex-column"
+                                            :class="index===0?'mt-4':'mt-2'"
                                             flat
                                             outlined
-                                            v-for="contact in fairsharingRecord.metadata.contacts"
+                                            v-for="(contact,index) in fairsharingRecord.metadata.contacts"
                                             :key="contact.contact_name"
                                     >
                                         <div class="d-flex mt-2 flex-wrap">
@@ -211,15 +206,15 @@
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>GRANTS<span
                                             class="triangle-bottomRight"></span></h4>
                                     <v-card
-                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            class="pr-2 pl-4 pt-1 pb-2 d-flex flex-column"
+                                            :class="index===0?'mt-4':'mt-2'"
                                             flat
                                             outlined
-                                            v-for="grant in fairsharingRecord.grants"
+                                            v-for="(grant,index) in fairsharingRecord.grants"
                                             :key="grant.name"
                                     >
-                                        <div class="d-flex mt-2 flex-wrap">
+                                        <div class="d-flex mt-2 ">
                                             <v-icon color="secondary" class="mr-2">mdi-cash-multiple</v-icon>
-                                            <b class="mr-2">Grant:</b>
                                             <p class="ma-0">{{grant.name}}</p>
                                         </div>
                                     </v-card>
@@ -235,15 +230,15 @@
                                             class="triangle-bottomLeft"></span>ORGANISATION<span
                                             class="triangle-bottomRight"></span></h4>
                                     <v-card
-                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            class="pr-2 pl-4 pt-1 pb-2 d-flex flex-column"
+                                            :class="index===0?'mt-4':'mt-2'"
                                             flat
                                             outlined
-                                            v-for="organisation in fairsharingRecord.organisations"
+                                            v-for="(organisation,index) in fairsharingRecord.organisations"
                                             :key="organisation.name"
                                     >
-                                        <div class="d-flex mt-2 flex-wrap">
+                                        <div class="d-flex mt-2 ">
                                             <v-icon color="secondary" class="mr-2">mdi-factory</v-icon>
-                                            <b class="mr-2">organisation:</b>
                                             <p class="ma-0">{{organisation.name}}</p>
                                         </div>
                                     </v-card>
@@ -253,7 +248,7 @@
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
                                 <!-- LICENSES -->
                                 <v-card
-                                        class="pa-4 mt-5 d-flex flex-column"
+                                        class="pa-4 mt-lg-5 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
@@ -261,15 +256,15 @@
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>LICENSES<span
                                             class="triangle-bottomRight"></span></h4>
                                     <v-card
-                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            class="pr-2 pl-4 pt-1 pb-2 d-flex flex-column"
+                                            :class="index===0?'mt-4':'mt-2'"
                                             flat
                                             outlined
-                                            v-for="licence in fairsharingRecord.licences"
+                                            v-for="(licence,index) in fairsharingRecord.licences"
                                             :key="licence.name"
                                     >
-                                        <div class="d-flex mt-2 flex-wrap">
+                                        <div class="d-flex mt-2 ">
                                             <v-icon color="secondary" class="mr-2">mdi-certificate</v-icon>
-                                            <b class="mr-2">Licence:</b>
                                             <p class="ma-0">{{licence.name}}</p>
                                         </div>
                                     </v-card>
@@ -285,21 +280,19 @@
                                             class="triangle-bottomRight"></span></h4>
                                     <!--Contact-->
                                     <v-card
-                                            class="pa-4 mt-2 d-flex flex-column"
+                                            class="pa-4 d-flex flex-column"
+                                            :class="index===0?'mt-4':'mt-2'"
                                             flat
                                             outlined
-                                            v-for="maintainer in fairsharingRecord.maintainers"
+                                            v-for="(maintainer,index) in fairsharingRecord.maintainers"
                                             :key="maintainer.contact_name"
                                     >
                                         <div class="d-flex mt-2 flex-wrap">
-                                            <v-icon color="secondary" class="mr-2">mdi-account-box-outline</v-icon>
-                                            <b class="mr-2">ID:</b>
-                                            <p class="ma-0">{{maintainer.id}}</p>
-                                        </div>
-                                        <div class="d-flex mt-2 flex-wrap">
                                             <v-icon color="secondary" class="mr-2">mdi-account-circle</v-icon>
                                             <b class="mr-2">User Name:</b>
-                                            <p class="ma-0">{{maintainer.username}}</p>
+                                            <router-link :to="maintainer.username+'/'+maintainer.id">
+                                                {{maintainer.username+'/'+maintainer.id}}
+                                            </router-link>
                                         </div>
                                     </v-card>
                                 </v-card>
@@ -313,15 +306,15 @@
                                     <h4 class="title-style"><span class="triangle-bottomLeft"></span>PUBLICATIONS<span
                                             class="triangle-bottomRight"></span></h4>
                                     <v-card
-                                            class="pr-2 pl-4 pt-1 pb-2 mt-2 d-flex flex-column"
+                                            class="pr-2 pl-4 pt-1 pb-2 d-flex flex-column"
+                                            :class="index===0?'mt-4':'mt-2'"
                                             flat
                                             outlined
-                                            v-for="publication in fairsharingRecord.publications"
+                                            v-for="(publication,index) in fairsharingRecord.publications"
                                             :key="publication.title"
                                     >
-                                        <div class="d-flex mt-2 flex-wrap">
+                                        <div class="d-flex mt-2 ">
                                             <v-icon color="secondary" class="mr-2">mdi-book-open</v-icon>
-                                            <b class="mr-2">publication:</b>
                                             <p class="ma-0">{{publication.title}}</p>
                                         </div>
                                     </v-card>
@@ -357,11 +350,9 @@
                 }
                 return string;
             }
-
         },
         data: () => {
             return {
-                urlLinks: [{showLinkStyle: false}, {showLinkStyle: false}],
                 showScrollToTopButton: false,
                 fairsharingRecord: {
                     "registry": "standard",
@@ -516,12 +507,24 @@
                     "reviews": []
                 }
             }
-        },
-        methods: {},
+        }
     }
 </script>
 
 <style scoped lang="scss">
+    a {
+        text-decoration: none;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+            outline: 0;
+        }
+    }
+
+    .flag-mr {
+        margin-right: .29em;
+    }
+
     #banner {
         display: flex;
         justify-content: center;
