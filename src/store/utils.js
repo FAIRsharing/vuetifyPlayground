@@ -1,3 +1,4 @@
+import {has} from 'lodash'
 
 let utilsStore = {
     namespaced: true,
@@ -9,19 +10,24 @@ let utilsStore = {
         },
     },
     mutations: {
-        setGeneralUIAttributesMutation(state, statusObject) {
-            state.UIGeneralStatus.bodyOverflowState =  statusObject.bodyOverflowState;
-            state.UIGeneralStatus.drawerVisibilityState = statusObject.drawerVisibilityState;
-            state.UIGeneralStatus.headerVisibilityState = statusObject.headerVisibilityState;
+        setGeneralUIAttributesMutation: function (state, statusObject) {
+            if (has(statusObject, 'bodyOverflowState')) {
+                state.UIGeneralStatus.bodyOverflowState = statusObject.bodyOverflowState;
+            }
+            if (has(statusObject, 'drawerVisibilityState')) {
+                state.UIGeneralStatus.drawerVisibilityState = statusObject.drawerVisibilityState;
+            }
+            if (has(statusObject, 'headerVisibilityState')) {
+                state.UIGeneralStatus.headerVisibilityState = statusObject.headerVisibilityState;
+            }
         }
     },
     actions: {
-        setGeneralUIAttributesAction(state, statusObject) {
+        setGeneralUIAttributesAction: function (state, statusObject) {
             this.commit('utils/setGeneralUIAttributesMutation', statusObject);
         },
     }
 };
-
 
 export default utilsStore;
 

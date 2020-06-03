@@ -71,7 +71,10 @@
         methods: {
             toggleDrawerLeft: function () {
                 this.drawerLeft = true;
-                this.$emit('setParentDrawerStatus', this.drawerLeft)
+                this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                    headerVisibilityState: true,
+                    drawerVisibilityState: this.drawerLeft
+                });
             }
         }
     }
@@ -86,10 +89,12 @@
     {
         opacity: 0;
     }
+
     ul {
         list-style: none;
     }
-    header{
+
+    header {
         padding-right: .5rem;
     }
 </style>

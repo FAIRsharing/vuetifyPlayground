@@ -45,7 +45,7 @@
         computed: {
             watcherOnUIGeneralStatus: function () {
                 return this.$store.state.utils.UIGeneralStatus;
-            }
+            },
         },
         watch: {
             watcherOnUIGeneralStatus: {
@@ -55,6 +55,11 @@
                     this.toggleHeader(UIGeneralStatus.headerVisibilityState);
                 },
                 deep: true
+            },
+            showDrawerLeft: function () {
+                this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                    drawerVisibilityState: this.showDrawerLeft,
+                });
             }
         },
     }
