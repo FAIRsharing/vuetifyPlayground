@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "34a891f7f351efdbb179",
-    "url": "css/app.cb611da1.css"
+    "revision": "e40c0689e895e7463bf0",
+    "url": "css/app.c79991e9.css"
   },
   {
-    "revision": "d2636dcc486ae0646d17",
-    "url": "css/chunk-vendors.0004fe5f.css"
+    "revision": "8b1ac37f9ea0929d90ef",
+    "url": "css/chunk-vendors.26e0118d.css"
   },
   {
     "revision": "0509ab09c1b0d2200a4135803c91d6ce",
@@ -44,16 +44,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/fairsharing-logo.c8194b18.svg"
   },
   {
-    "revision": "978e85a343d1a485f59181b49e727139",
+    "revision": "d191d0be9ca89a212e7ca171c05d553e",
     "url": "index.html"
   },
   {
-    "revision": "34a891f7f351efdbb179",
-    "url": "js/app.3ae818d2.js"
+    "revision": "e40c0689e895e7463bf0",
+    "url": "js/app.ea2c07a5.js"
   },
   {
-    "revision": "d2636dcc486ae0646d17",
-    "url": "js/chunk-vendors.666b9a83.js"
+    "revision": "8b1ac37f9ea0929d90ef",
+    "url": "js/chunk-vendors.a18d060b.js"
   },
   {
     "revision": "65a26a893471a81549361a477c2fd4af",
