@@ -108,7 +108,7 @@
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
                                 <!-- KEYWORDS -->
                                 <v-card
-                                        class="pa-4 mt-5 d-flex flex-column"
+                                        class="pa-4 mt-3 mt-lg-3 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
@@ -248,7 +248,7 @@
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
                                 <!-- LICENSES -->
                                 <v-card
-                                        class="pa-4 mt-lg-5 d-flex flex-column"
+                                        class="pa-4 mt-0 mt-lg-3 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
