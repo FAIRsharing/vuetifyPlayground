@@ -39,7 +39,7 @@
                                                lg="11" xl="11">
                                             <div class="d-flex flex-column mt-2  ml-sm-6 ml-lg-8">
                                                 <div class="d-flex flex-row mb-2 align-center">
-                                                    <h3>BRENDA tissue / enzyme source</h3>
+                                                    <h3>{{fairsharingRecord.name}}</h3>
                                                     <b class="ml-2">({{fairsharingRecord.abbreviation}})</b>
                                                 </div>
                                                 <div class="d-flex align-center">
@@ -108,7 +108,7 @@
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
                                 <!-- KEYWORDS -->
                                 <v-card
-                                        class="pa-4 mt-3 mt-lg-3 d-flex flex-column"
+                                        class="pa-4 mt-3 mt-lg-2 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
@@ -248,7 +248,7 @@
                             <v-col :cols="$vuetify.breakpoint.mdAndDown?'12':'6'">
                                 <!-- LICENSES -->
                                 <v-card
-                                        class="pa-4 mt-0 mt-lg-3 d-flex flex-column"
+                                        class="pa-4 mt-0 mt-lg-2 d-flex flex-column"
                                         outlined
                                         tile
                                         elevation="1"
@@ -322,6 +322,44 @@
                             </v-col>
                         </v-row>
 
+                        <!-- Associated Records -->
+                        <v-row no-gutters>
+                            <v-col>
+                                <v-card
+                                        class="pa-4 mt-2 d-flex flex-column"
+                                        outlined
+                                        tile
+                                        elevation="1"
+                                >
+                                    <h4 class="title-style"><span class="triangle-bottomLeft"></span>ASSOCIATED
+                                        RECORDS<span
+                                                class="triangle-bottomRight"></span></h4>
+                                    <section class="mt-2">
+
+                                        <v-card class="mt-3">
+                                            <v-card-title>
+                                                Data Table
+                                                <v-spacer></v-spacer>
+                                                <v-text-field
+                                                        v-model="search"
+                                                        append-icon="mdi-magnify"
+                                                        label="Search"
+                                                        single-line
+                                                        hide-details
+                                                ></v-text-field>
+                                            </v-card-title>
+                                            <v-data-table
+                                                    :headers="headers"
+                                                    :items="flattenAssociatedRecordsArray"
+                                                    :search="search"
+                                            ></v-data-table>
+                                        </v-card>
+
+                                    </section>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+
                     </v-card>
                 </v-col>
             </v-row>
@@ -335,7 +373,7 @@
     import Ribbon from "../components/Ribbon";
     import CircleHolder from "../components/CircleHolder";
     import Footer from "../components/Footer";
-    import CountryFlag from 'vue-country-flag'
+    import CountryFlag from 'vue-country-flag';
 
     export default {
         name: "Record",
@@ -349,10 +387,50 @@
                     return string.replace(/_/g, " ");
                 }
                 return string;
+            },
+        },
+        methods: {
+            cleanString: function (string) {
+                if (typeof string === "string") {
+                    return string.replace(/_/g, " ");
+                }
+                return string;
+            }
+        },
+        computed: {
+            // flatten the associatedRecords and AssociatedRecordsReverse into one array
+            flattenAssociatedRecordsArray: function () {
+                let flatten_recordAssociations = [];
+                this.fairsharingRecord.recordAssociations.forEach(item => {
+                    let object = {registry: null, name: null, recordAssocLabel: null, subject: null}
+                    object.id = item.linkedRecord.id;
+                    object.registry = item.linkedRecord.registry;
+                    object.name = item.linkedRecord.name;
+                    object.recordAssocLabel = this.cleanString(item.recordAssocLabel + ' ->');
+                    object.subject = this.fairsharingRecord.name;
+                    flatten_recordAssociations.push(object);
+                });
+                this.fairsharingRecord.reverseRecordAssociations.forEach(item => {
+                    let object = {registry: null, name: null, recordAssocLabel: null, subject: null}
+                    object.id = item.fairsharingRecord.id;
+                    object.registry = item.fairsharingRecord.registry;
+                    object.name = item.fairsharingRecord.name;
+                    object.recordAssocLabel = this.cleanString(item.recordAssocLabel + ' ->');
+                    object.subject = this.fairsharingRecord.name;
+                    flatten_recordAssociations.push(object);
+                });
+                return flatten_recordAssociations;
             }
         },
         data: () => {
             return {
+                search: '',
+                headers: [
+                    {text: 'Name', value: 'name'},
+                    {text: 'Registry', value: 'registry'},
+                    {text: 'Relationship', value: 'recordAssocLabel'},
+                    {text: 'Subject', value: 'subject'},
+                ],
                 showScrollToTopButton: false,
                 fairsharingRecord: {
                     "registry": "standard",
