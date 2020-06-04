@@ -1,6 +1,6 @@
 import {has} from 'lodash'
 
-let utilsStore = {
+let uiController = {
     namespaced: true,
     state: {
         UIGeneralStatus: {
@@ -24,10 +24,10 @@ let utilsStore = {
     },
     actions: {
         setGeneralUIAttributesAction: function (state, statusObject) {
-            this.commit('utils/setGeneralUIAttributesMutation', statusObject);
+            this.commit('uiController/setGeneralUIAttributesMutation', statusObject);
         },
     }
 };
 
-export default utilsStore;
+export default uiController;
 

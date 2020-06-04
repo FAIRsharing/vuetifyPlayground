@@ -96,7 +96,7 @@
         }),
         created() {
             // change the overflow to have Records behavior scroll
-            this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+            this.$store.dispatch("uiController/setGeneralUIAttributesAction", {
                 bodyOverflowState: true,
                 drawerVisibilityState: false,
                 headerVisibilityState: true,
@@ -104,7 +104,7 @@
         },
         destroyed() {
             // change the overflow to have normal behavior of main scroll and having header
-            this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+            this.$store.dispatch("uiController/setGeneralUIAttributesAction", {
                 bodyOverflowState: false,
                 drawerVisibilityState: false,
                 headerVisibilityState: true,
@@ -116,13 +116,13 @@
                 _module.offsetTop = e.target.scrollTop;
                 if (_module.offsetTop > 125) {
                     _module.stickToLeft = true;
-                    this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                    this.$store.dispatch("uiController/setGeneralUIAttributesAction", {
                         bodyOverflowState: true,
                         headerVisibilityState: false,
                     });
                 } else {
                     _module.stickToLeft = false;
-                    this.$store.dispatch("utils/setGeneralUIAttributesAction", {
+                    this.$store.dispatch("uiController/setGeneralUIAttributesAction", {
                         bodyOverflowState: true,
                         headerVisibilityState: true,
                     });
