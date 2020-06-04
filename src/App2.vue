@@ -3,7 +3,7 @@
         <v-navigation-drawer app left width="70%" v-model="showDrawerLeft" v-if="$vuetify.breakpoint.smAndDown">
         </v-navigation-drawer>
         <transition name="fade">
-            <Header v-if="showHeader" v-on:setParentDrawerStatus="toggleDrawer"></Header>
+            <Header v-if="showHeader"></Header>
         </transition>
         <router-view/>
     </v-app>
