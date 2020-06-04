@@ -114,11 +114,12 @@
                 // changing currentChips data
                 this.currentActiveChips = this.buttons[itemIndex].title;
             },
-            toggleChipActiveness: function (itemIndex) {
-                let selectedItem = this.Chips[this.currentActiveChips].find(item => item === itemIndex);
+            toggleChipActiveness: function (chip) {
+                let selectedItem = this.Chips[this.currentActiveChips].find(item => item === chip);
                 this.Chips[this.currentActiveChips].map(item => {
                     if (item === selectedItem) {
                         item.active = !item.active;
+                        //    should call scroll to top from store.
                     }
                 });
             },
