@@ -8,6 +8,7 @@
     >
         <v-row no-gutters class="full-width">
             <Ribbon title="RECOMMENDED" v-if="recommended"></Ribbon>
+
             <v-col cols="12" xs="12" sm="12" lg="12" md="12" xl="3" @mouseenter="allowClicking=true"
                    @mouseleave="allowClicking=false" @click="gotoRecordPage">
                 <div class="mt-1 ml-2 pr-6 d-flex flex-row align-center justify-start">

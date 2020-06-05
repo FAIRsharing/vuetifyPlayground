@@ -14,34 +14,11 @@
 
     export default {
         components: {Header},
-        props: {
-            source: String,
-        },
         data: () => ({
             showHeader: true,
             showDrawerLeft: false,
             hideOverflow: 'overflow-hidden'
         }),
-        created() {
-            // this.$vuetify.theme.dark = true;
-            // console.log( this.$vuetify.theme);
-            //  console.log( this.$vuetify.icons.values);
-            //  console.log( this.$vuetify);
-            // console.log( this.$vuetify.breakpoint);
-            // console.log( this.$vuetify.breakpoint.width + ' '+this.$vuetify.breakpoint.height);
-        },
-        methods: {
-            toggleOverFlow: function (status) {
-                let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
-                status ? root.setAttribute('class', this.hideOverflow) : root.removeAttribute('class');
-            },
-            toggleDrawer: function (status) {
-                this.showDrawerLeft = status;
-            },
-            toggleHeader: function (status) {
-                this.showHeader = status;
-            },
-        },
         computed: {
             watcherOnUIGeneralStatus: function () {
                 return this.$store.state.uiController.UIGeneralStatus;
@@ -62,6 +39,27 @@
                 });
             }
         },
+        created() {
+            // this.$vuetify.theme.dark = true;
+            // console.log( this.$vuetify.theme);
+            //  console.log( this.$vuetify.icons.values);
+            //  console.log( this.$vuetify);
+            // console.log( this.$vuetify.breakpoint);
+            // console.log( this.$vuetify.breakpoint.width + ' '+this.$vuetify.breakpoint.height);
+        },
+        methods: {
+            toggleOverFlow: function (status) {
+                let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
+                status ? root.setAttribute('class', this.hideOverflow) : root.removeAttribute('class');
+            },
+            toggleDrawer: function (status) {
+                this.showDrawerLeft = status;
+            },
+            toggleHeader: function (status) {
+                this.showHeader = status;
+            },
+        },
+
     }
 </script>
 
